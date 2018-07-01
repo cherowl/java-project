@@ -1,4 +1,3 @@
-
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.File;
@@ -8,7 +7,7 @@ public class Application {
     public static void main(String args[]) throws FileNotFoundException {
 //        int arr[] = {12, 11, 13, 5, 6, 7};
 //        int n = arr.length;
-        File file = new File("C:/Users/Sergey/IdeaProjects/HeapSort/resource/input.dat");
+        File file = new File("/home/elena/workspace/java/java-project/HeapSort/resource/input.dat");
         System.err.println(file.getAbsolutePath());
         Scanner in = new Scanner(file);
 
