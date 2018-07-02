@@ -1,11 +1,12 @@
-#Visualisarion of Heap Sort
-[![Java]](https://ru.wikipedia.org/wiki/Java#/media/File:Java_logo.svg)]
+# Visualisarion of Heap Sort
+[![Java]](http://diylogodesigns.com/blog/wp-content/uploads/2017/07/java-logo-vector-768x768.png)]()
 
-#Using tools
+# Using tools
 * [swing] - Java library
 
-#Developers
+# Developers
 > ELena Chercasova
+>
 > Victoria Tereshenko
+>
 > Sergey Kostin
-
