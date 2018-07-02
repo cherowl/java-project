@@ -1,11 +1,11 @@
 # Visualisarion of Heap Sort
-[![Java]](http://diylogodesigns.com/blog/wp-content/uploads/2017/07/java-logo-vector-768x768.png)]()
+![Java](https://seeklogo.com/images/J/java-logo-7833D1D21A-seeklogo.com.png)
 
 # Using tools
 * [swing] - Java library
 
 # Developers
-> ELena Chercasova
+> #ELena Chercasova
 >
 > Victoria Tereshenko
 >
