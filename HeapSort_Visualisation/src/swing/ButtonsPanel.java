@@ -1,4 +1,4 @@
-package etu.swing;
+package src.swing;
 
 import javax.swing.*;
 import javax.swing.event.AncestorListener;

@@ -1,7 +1,7 @@
-package etu.controller;
+package src.controller;
 
-import etu.heapSort.HeapSort;
-import etu.view.View;
+import src.heapSort.HeapSort;
+import src.view.View;
 
 public class Controller {
     private final HeapSort heapSort;

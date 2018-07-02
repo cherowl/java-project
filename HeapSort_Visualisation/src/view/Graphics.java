@@ -1,4 +1,4 @@
-package etu.view;
+package src.view;
 
 public interface Graphics {
     void drawRect(int x, int y, int width, int height, int rgb, int data);

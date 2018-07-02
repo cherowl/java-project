@@ -1,8 +1,8 @@
-package etu.swing;
+package src.swing;
 
-import etu.controller.Controller;
-import etu.heapSort.FileReadArray;
-import etu.heapSort.HeapSort;
+import src.controller.Controller;
+import src.heapSort.FileReadArray;
+import src.heapSort.HeapSort;
 
 import javax.swing.*;
 import java.awt.*;
@@ -48,7 +48,8 @@ public class UI extends JFrame{
 
     private void initListners() throws FileNotFoundException {
         //TODO Scaner blabla
-        Scanner in = new Scanner(new File("C:/Users/Sergey/IdeaProjects/HeapSort_Visualisation/resource/input.dat"));
+        ///home/elena/java/java-project/HeapSort_Visualisation/resource
+        Scanner in = new Scanner(new File("./../resource/input.dat"));
         FileReadArray f = FileReadArray.init(in);
 
         HeapSort ob = new HeapSort();

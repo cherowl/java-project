@@ -1,4 +1,4 @@
-package etu.heapSort;
+package src.heapSort;
 
 public class HeapSort {
     private int[] arr;

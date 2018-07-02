@@ -1,6 +1,6 @@
-package etu.view;
+package src.view;
 
-import etu.heapSort.HeapSort;
+import src.heapSort.HeapSort;
 
 public class View {
     private final static int CIRCLE_SIZE = 30;
