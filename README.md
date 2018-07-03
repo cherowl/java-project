@@ -5,7 +5,7 @@
 * [swing] - Java library
 
 # Developers
-> #ELena Chercasova
+> ELena Chercasova
 >
 > Victoria Tereshenko
 >

@@ -1,20 +1,22 @@
-package src.heapSort;
+package testFileOutput;
 
-public class HeapSort {
+class HeapSort {
     private int[] arr;
+    private int[][] steps;
 
-    public HeapSort(int[] arr) {
+    HeapSort(int[] arr) {
         this.arr = arr;
     }
 
-    public HeapSort sort(int arr[])
+    HeapSort sort(int arr[])
     {
+        printArray(arr);
         int n = arr.length;
 
         // Build heap (rearrange array)
         for (int i = n / 2 - 1; i >= 0; i--)
             heapify(arr, n, i);
-
+        printArray(arr);
         // One by one extract an element from heap
         for (int i=n-1; i>=0; i--)
         {
@@ -22,6 +24,8 @@ public class HeapSort {
             int temp = arr[0];
             arr[0] = arr[i];
             arr[i] = temp;
+
+            printArray(this.arr);
 
             // call max heapify on the reduced heap
             heapify(arr, i, 0);
@@ -52,6 +56,7 @@ public class HeapSort {
             arr[i] = arr[largest];
             arr[largest] = swap;
 
+            printArray(this.arr);
             // Recursively heapify the affected sub-tree
             heapify(arr, n, largest);
         }
@@ -66,7 +71,7 @@ public class HeapSort {
         System.out.println();
     }
 
-    public int[] getSortArr(){
+    int[] getSortArr(){
         return  arr;
     }
 }

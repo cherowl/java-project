@@ -9,17 +9,27 @@ public class View {
     private Graphics graphics;
 
     public void draw(HeapSort heapSort){
-        drawSortArray(heapSort);
+        drawSortedArray(heapSort);
         drawGraphArray(heapSort);
     }
 
-    private void drawSortArray(HeapSort heapSort){  //draw of sorted array
+    private void drawSortedArray(HeapSort heapSort){  //draw of sorted array
         int lenght = heapSort.getSortArr().length;
+        int[] arr =  heapSort.getSortArr();
         for (int i = 0; i < lenght; i++) {
-            graphics.drawRect();
+            graphics.drawRect(20, 50 + i*30, 30, 30, arr[i]);
         }
     }
-    private void drawGraphArray(HeapSort heapSort){
 
+    public void showThanks(){
+        graphics.showThanks();
+    }
+
+    private void drawGraphArray(HeapSort heapSort){ //draw tree
+        // TODO
+    }
+
+    public void setGraphics(Graphics graphics) {
+        this.graphics = graphics;
     }
 }
