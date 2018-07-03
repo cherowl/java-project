@@ -16,9 +16,9 @@ public class SwingGraphicsAdapter implements Graphics {
 
     @Override
     @SuppressWarnings("SuspiciousNameCombination")
-    public void drawRect(int x, int y, int width, int height, int rgb, int data) {
-        graphics.setColor(new Color(rgb));
-
+    public void drawRect(int x, int y, int width, int height, int data) {
+        graphics.setColor(Color.MAGENTA);
+        graphics.drawString(Integer.valueOf(data).toString(), x, y);
         graphics.fillRect(y, x, width, height);
     }
 

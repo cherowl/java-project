@@ -24,7 +24,7 @@ public class UI extends JFrame{
         SwingUtilities.invokeLater(()->new UI().setVisible(true));
     }
 
-    private  UI() throws HeadlessException, FileNotFoundException {
+    private  UI() throws HeadlessException {
         JPanel rootPanel = new JPanel(){
             @Override
             public void paint(Graphics g){
@@ -64,7 +64,7 @@ public class UI extends JFrame{
 
         Controller controller = new Controller(heapSort, view, file);
 
-        buttons.addStartSort(e -> controller.StartSort())); //ERROR HERE
+        buttons.addStartSort(e -> controller.StartSort()); //ERROR HERE
 
         canvas.addKeyListener( new KeyAdapter() {
                @Override
