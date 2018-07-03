@@ -64,7 +64,7 @@ public class UI extends JFrame{
 
         Controller controller = new Controller(heapSort, view, file);
 
-        buttons.addStartSort());
+        buttons.addStartSort(e -> controller.StartSort())); //ERROR HERE
 
         canvas.addKeyListener( new KeyAdapter() {
                @Override
