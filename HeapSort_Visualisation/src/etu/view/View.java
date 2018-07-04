@@ -17,7 +17,7 @@ public class View {
         int lenght = heapSort.getSortArr().length;
         int[] arr =  heapSort.getSortArr();
         for (int i = 0; i < lenght; i++) {
-            graphics.drawRect(20, 50 + i*30, 30, 30, arr[i]);
+            graphics.drawRect(300, 60 + i*30, 30, 30, arr[i]);
         }
     }
 
