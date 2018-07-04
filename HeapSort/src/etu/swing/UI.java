@@ -23,10 +23,16 @@ public class UI extends JFrame{
     private final Component canvas;
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(()->new UI().setVisible(true));
+        SwingUtilities.invokeLater(()-> {
+            try {
+                new UI().setVisible(true);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
-    private  UI() throws HeadlessException {
+    private  UI() throws HeadlessException, FileNotFoundException {
         JPanel rootPanel = new JPanel(){
             @Override
             public void paint(Graphics g){
@@ -52,7 +58,7 @@ public class UI extends JFrame{
         pack();
         setLocationRelativeTo(null); // position window in center
 
-        //initListners();
+        initListners();
     }
 
     private void initListners() throws FileNotFoundException {
@@ -67,12 +73,18 @@ public class UI extends JFrame{
 
         Controller controller = new Controller(heapSort, view, file);
 
-//        buttons.addStartSort(new AncestorListener(){
-//                @Override
-//                public void ancestorAdded(AncestorEvent event) {
-//
-//                }
-//        });
+        buttons.addStartSort(new AncestorListener(){
+                @Override
+                public void ancestorAdded(AncestorEvent event) {
+                }
+                @Override
+                public void ancestorMoved(AncestorEvent event){
+                }
+                @Override
+                public void ancestorRemoved(AncestorEvent event){
+                }
+
+        });
 
         Timer timer = new Timer(50, e -> { controller.viewUpdated(); canvas.requestFocus(); });
         timer.setRepeats(true);
