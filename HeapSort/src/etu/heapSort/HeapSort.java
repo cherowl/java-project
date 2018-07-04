@@ -1,6 +1,13 @@
-public class HeapSort {
+package etu.heapSort;
 
-    public void sort(int arr[])
+public class HeapSort {
+    private int[] arr;
+
+    public HeapSort(int[] arr) {
+        this.arr = arr;
+    }
+
+    public HeapSort sort(int arr[])
     {
         int n = arr.length;
 
@@ -19,11 +26,12 @@ public class HeapSort {
             // call max heapify on the reduced heap
             heapify(arr, i, 0);
         }
+        return new HeapSort(arr);
     }
 
     // To heapify a subtree rooted with node i which is
     // an index in arr[]. n is size of heap
-    void heapify(int arr[], int n, int i)
+    private void heapify(int arr[], int n, int i)
     {
         int largest = i;  // Initialize largest as root
         int l = 2*i + 1;  // left = 2*i + 1
@@ -53,9 +61,12 @@ public class HeapSort {
     static void printArray(int arr[])
     {
         int n = arr.length;
-        for (int i=0; i<n; ++i)
-            System.out.print(arr[i]+" ");
+        for (int anArr : arr)
+            System.out.print(anArr + " ");
         System.out.println();
     }
 
+    public int[] getSortArr(){
+        return  arr;
+    }
 }

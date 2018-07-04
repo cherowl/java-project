@@ -1,0 +1,35 @@
+package etu.swing;
+
+import etu.view.Graphics;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class SwingGraphicsAdapter implements Graphics {
+    private final JFrame mainFrame;
+    private final java.awt.Graphics graphics;
+
+    public SwingGraphicsAdapter(JFrame mainFrame, java.awt.Graphics graphics) {
+        this.mainFrame = mainFrame;
+        this.graphics = graphics;
+    }
+
+    @Override
+    @SuppressWarnings("SuspiciousNameCombination")
+    public void drawRect(int x, int y, int width, int height, int data) {
+        graphics.setColor(Color.BLACK);
+        graphics.fillRect(y-20, x, width, height);
+        graphics.setColor(Color.WHITE);
+        graphics.drawString(data+"", y-15, x+15);
+    }
+
+    @Override
+    public void drawLine(int x1, int y1, int x2, int y2) {
+        drawLine(x1, y1, x2, y2);
+    }
+
+    @Override
+    public void showThanks() {
+        JOptionPane.showConfirmDialog(mainFrame, "Thanks for using!", "Congratulations", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+    }
+}
