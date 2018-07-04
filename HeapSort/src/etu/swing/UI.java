@@ -7,11 +7,10 @@ import etu.heapSort.HeapSort;
 import etu.view.View;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,16 +32,18 @@ public class UI extends JFrame{
     }
 
     private  UI() throws HeadlessException, FileNotFoundException {
+        super("Heap Sort Visualisation");
         JPanel rootPanel = new JPanel(){
             @Override
             public void paint(Graphics g){
-                g.setColor(Color.cyan);
+                g.setColor(Color.GRAY);
                 g.fillRect(5, 5, 700, 600); //size of inside window
             }
         };
 
         buttons = new ButtonsPanel();
         canvas = new JPanel();
+
 
         canvas.setPreferredSize(new Dimension(900, 600));
         buttons.setPreferredSize(new Dimension(900, 400));
@@ -73,18 +74,24 @@ public class UI extends JFrame{
 
         Controller controller = new Controller(heapSort, view, file);
 
-        buttons.addStartSort(new AncestorListener(){
-                @Override
-                public void ancestorAdded(AncestorEvent event) {
-                }
-                @Override
-                public void ancestorMoved(AncestorEvent event){
-                }
-                @Override
-                public void ancestorRemoved(AncestorEvent event){
-                }
+        class A implements AncestorListener{
 
-        });
+            @Override
+            public void ancestorAdded(AncestorEvent event) {
+                controller.StartSort();
+            }
+
+            @Override
+            public void ancestorRemoved(AncestorEvent event) {
+
+            }
+
+            @Override
+            public void ancestorMoved(AncestorEvent event) {
+
+            }
+        }
+        buttons.addStartSort(new A());
 
         Timer timer = new Timer(50, e -> { controller.viewUpdated(); canvas.requestFocus(); });
         timer.setRepeats(true);
