@@ -52,11 +52,12 @@ public class UI extends JFrame{
         pack();
         setLocationRelativeTo(null); // position window in center
 
-        initListners();
+        //initListners();
     }
 
     private void initListners() throws FileNotFoundException {
-        Scanner in = new Scanner(new File("C:/Users/Sergey/IdeaProjects/HeapSort_Visualisation/resource/input.dat"));
+        Scanner in = new Scanner(new File("./resource/input.dat"));
+
         FileReadArray file = FileReadArray.init(in);
 
         HeapSort heapSort = new HeapSort(file.getArray());
@@ -66,13 +67,12 @@ public class UI extends JFrame{
 
         Controller controller = new Controller(heapSort, view, file);
 
-        buttons.addStartSort(new AncestorListener()){
-                @Override
-                public void ancestorAdded(AncestorEvent event) {
-
-                }
-            });
-        );
+//        buttons.addStartSort(new AncestorListener(){
+//                @Override
+//                public void ancestorAdded(AncestorEvent event) {
+//
+//                }
+//        });
 
         Timer timer = new Timer(50, e -> { controller.viewUpdated(); canvas.requestFocus(); });
         timer.setRepeats(true);
