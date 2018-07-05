@@ -41,7 +41,20 @@ public class UI extends JFrame {
         String path = "C:/Users/Sergey/java-project/HeapSort/resource/outGraph.dat";
         FileSource metaData = FileSourceFactory.sourceFor(path);
 
-        Graph graph = new SingleGraph("G", false, true);
+        Graph graph = new SingleGraph("G", true, true);
+
+        for (Node node: graph){
+            node.addAttribute("label", node.getId());
+        }
+
+
+        graph.addAttribute("ui.stylesheet",
+                "graph{fill-color:   gray;} " +
+                        "node{ " +
+                        "shape: circle;  " +
+                        "size:       30px, 30px; " +
+                        "fill-color: white;" +
+                        "stroke-mode:  plain; }");
 
         metaData.addSink(graph);
         try {
@@ -62,9 +75,9 @@ public class UI extends JFrame {
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
         viewer.enableAutoLayout(); //graph will tend to make nodes tied with each other close
         View view = viewer.addDefaultView(false);
-        view.getCamera().resetView();
+//        view.getCamera().resetView();
 //        view.getCamera().setViewPercent(0.5); //This will zoom of 200% on the view center.
-        ((ViewPanel) view).setPreferredSize( new Dimension(750, 640));
+        ((ViewPanel) view).setPreferredSize( new Dimension(750, 630));
 
         JPanel graphPanel = new JPanel();
         graphPanel.add((JPanel)view);
@@ -73,9 +86,9 @@ public class UI extends JFrame {
         graphPanel.setBorder(new TitledBorder("Graph"));
 
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
-        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10))); ///what is it?
+        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10)));
         leftPanel.add(graphPanel);
-        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10))); ///what is it?
+        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10)));
 
         JPanel rootPanel = new JPanel();
         rootPanel.setPreferredSize(new Dimension(1000, 700)); // size of MainWindow
@@ -92,6 +105,7 @@ public class UI extends JFrame {
         setContentPane(rootPanel);
         pack();
         setLocationRelativeTo(null); // position window in center
+
 
 
     }

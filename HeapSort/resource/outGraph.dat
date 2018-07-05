@@ -1,11 +1,11 @@
 DGS004
 triangle 0 8
-an A x:0 y:0
-an B x:1 y:2
-an C x:1 y:1
+an A
+an B
+an C
 an D
 an K
-ae AB A B weight:3
-ae AC A C weight:2
-ae CD C D weight:4
-ae CK C K weight:5
+ae AB A > B
+ae AC A > C
+ae CD C > D
+ae CK C > K
