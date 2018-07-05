@@ -1,4 +1,4 @@
-package etu.heapSort;
+package etu.model;
 
 import java.util.Scanner;
 
