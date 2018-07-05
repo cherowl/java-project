@@ -7,7 +7,6 @@ import etu.heapSort.HeapSort;
 import etu.view.View;
 
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
 import java.awt.*;
@@ -29,6 +28,7 @@ public class UI extends JFrame{
                 e.printStackTrace();
             }
         });
+        
     }
 
     private  UI() throws HeadlessException, FileNotFoundException {
@@ -72,7 +72,7 @@ public class UI extends JFrame{
         View view = new View();
         view.setGraphics(new SwingGraphicsAdapter(this, canvas.getGraphics()));
 
-        Controller controller = new Controller(heapSort, view, file);
+        Controller controller = new Controller(view, file);
 
         class A implements AncestorListener{
 

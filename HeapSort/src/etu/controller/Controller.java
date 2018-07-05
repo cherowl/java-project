@@ -6,23 +6,22 @@ import etu.view.View;
 
 public class Controller {
 
-    private final HeapSort heapSort;
+    private final HeapSort hp;
     private final FileReadArray readFile;
     private final View view;
 
-    public Controller(HeapSort heapSort, View view, FileReadArray readFile) {
-        this.heapSort = heapSort;
+    public Controller(View view, FileReadArray readFile) {
+        this.hp = new HeapSort(readFile.getArray());
         this.view = view;
         this.readFile = readFile;
     }
 
     public void viewUpdated(){
-        view.draw(heapSort);
+        view.draw(hp);
     }
 
     public void StartSort(){
-        heapSort.sort(readFile.getArray());
-        view.draw(heapSort);
+        view.draw(hp);
     }
 
 }

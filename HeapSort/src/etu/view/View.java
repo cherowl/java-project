@@ -8,14 +8,14 @@ public class View {
 
     private Graphics graphics;
 
-    public void draw(HeapSort heapSort){
-        drawSortedArray(heapSort);
-        drawGraphArray(heapSort);
+    public void draw(HeapSort hp){
+        drawSortedArray(hp);
+//        drawGraphArray(heapSort);
     }
 
-    private void drawSortedArray(HeapSort heapSort){  //draw of sorted array
-        int lenght = heapSort.getSortArr().length;
-        int[] arr =  heapSort.getSortArr();
+    private void drawSortedArray(HeapSort hp){  //draw of sorted array
+        int lenght = hp.getSortedArray().length;
+        int[] arr =  hp.getSortedArray();
         for (int i = 0; i < lenght; i++) {
             graphics.drawRect(300, 60 + i*30, 30, 30, arr[i]);
         }
@@ -25,9 +25,9 @@ public class View {
         graphics.showThanks();
     }
 
-    private void drawGraphArray(HeapSort heapSort){ //draw tree
-        // TODO
-    }
+//    private void drawGraphArray(HeapSort heapSort){ //draw tree
+//        // TODO
+//    }
 
     public void setGraphics(Graphics graphics) {
         this.graphics = graphics;
