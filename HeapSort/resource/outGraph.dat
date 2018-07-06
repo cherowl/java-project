@@ -5,5 +5,5 @@ an A xy: 0,0
 an B xy: -3,-1
 an C xy: 3,-1
 
-ae AB A B
-ae CA C A
+ae AB A>B
+ae CA C>A
