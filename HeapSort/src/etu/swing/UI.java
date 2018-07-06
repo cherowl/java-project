@@ -1,5 +1,6 @@
 package etu.swing;
 
+import etu.model.HeapSort;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
@@ -28,6 +29,9 @@ public class UI extends JFrame {
                 e.printStackTrace();
             }
         });
+        int[] mas = {33, 43, 3, 11};
+        HeapSort h = new HeapSort(mas);
+//        h.printSortedTrace();
     }
 
     private UI() throws HeadlessException, IOException {
