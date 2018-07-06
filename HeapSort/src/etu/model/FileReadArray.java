@@ -13,7 +13,9 @@ public class FileReadArray {
         int lenght = input.nextInt();
         int[] arr = new int[lenght];
         for (int i = 0; i < lenght; i++) {
-            arr[i] = input.nextInt();
+            if(input.hasNext()) {
+                arr[i] = input.nextInt();
+            }
         }
         return new FileReadArray(arr);
     }
