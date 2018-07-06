@@ -1,21 +1,18 @@
 package etu.swing;
 
-import etu.model.HeapSort;
-import etu.model.FileReadArray;
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
-import java.awt.*;
-import java.io.IOException;
-
-import org.graphstream.graph.*;
-import org.graphstream.graph.implementations.*;
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
 import org.graphstream.stream.file.FileSource;
 import org.graphstream.stream.file.FileSourceFactory;
 import org.graphstream.ui.swingViewer.ViewPanel;
 import org.graphstream.ui.view.View;
 import org.graphstream.ui.view.Viewer;
-import org.graphstream.ui.spriteManager.*;
-import java.util.Scanner;
+
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import java.awt.*;
+import java.io.IOException;
 
 
 public class UI extends JFrame {
@@ -53,7 +50,7 @@ public class UI extends JFrame {
 //        HeapSort heapSort = new HeapSort();
 
 
-        String path = "C:/Serega/java-project/HeapSort/resource/outGraph.dat";
+        String path = "./resource/outGraph.dat";
         FileSource metaData = FileSourceFactory.sourceFor(path);
 
         /**
