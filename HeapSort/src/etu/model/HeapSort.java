@@ -25,8 +25,6 @@ class BinTree{
     public BinTree right;
     public int key;
 
-
-
     public void create(int[] arr){
         int i = 1;
         while (!Objects.equals(i, arr.length)){

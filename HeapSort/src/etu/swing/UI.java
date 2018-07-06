@@ -1,17 +1,21 @@
 package etu.swing;
 
-import org.graphstream.graph.Edge;
-import org.graphstream.graph.Graph;
-import org.graphstream.graph.Node;
-import org.graphstream.graph.implementations.SingleGraph;
-import org.graphstream.ui.swingViewer.ViewPanel;
-import org.graphstream.ui.view.View;
-import org.graphstream.ui.view.Viewer;
-
+import etu.model.HeapSort;
+import etu.model.FileReadArray;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.io.IOException;
+
+import org.graphstream.graph.*;
+import org.graphstream.graph.implementations.*;
+import org.graphstream.stream.file.FileSource;
+import org.graphstream.stream.file.FileSourceFactory;
+import org.graphstream.ui.swingViewer.ViewPanel;
+import org.graphstream.ui.view.View;
+import org.graphstream.ui.view.Viewer;
+import org.graphstream.ui.spriteManager.*;
+import java.util.Scanner;
 
 
 public class UI extends JFrame {
@@ -27,7 +31,6 @@ public class UI extends JFrame {
                 e.printStackTrace();
             }
         });
-        
     }
 
     private UI() throws HeadlessException, IOException {
@@ -47,6 +50,11 @@ public class UI extends JFrame {
         rightPanel.add(buttons);
         rightPanel.add(Box.createRigidArea(new Dimension(110, 20)));
 
+//        HeapSort heapSort = new HeapSort();
+
+
+        String path = "C:/Serega/java-project/HeapSort/resource/outGraph.dat";
+        FileSource metaData = FileSourceFactory.sourceFor(path);
 
         /**
          *                 A(10)
@@ -62,34 +70,66 @@ public class UI extends JFrame {
          *   /    \      /
          * H(20) I(40) J(34)
          */
-        Graph graph = new SingleGraph("G", true, true);
-        Node a = graph.addNode("A");
-        a.setAttribute("label", 10); // instead of 10 -(must be) the element of the array
-        Node b = graph.addNode("B");
-        b.setAttribute("label", 20);
-        Node c = graph.addNode("C");
-        c.setAttribute("label", 5);
-        Node d = graph.addNode("D");
-        Node e = graph.addNode("E");
-        Node f = graph.addNode("F");
-        Node g = graph.addNode("G");
-        Edge AB = graph.addEdge("AB", "A", "B");
-//        graph.addEdge("AB", "A", "B", true).addAttribute("length", 14);
-        AB.addAttribute("label", "RIGHT");
-        graph.addEdge("AC", "A", "C", true);
-        graph.addEdge("BD", "B", "D", true);
-        graph.addEdge("BE", "B", "E", true);
-        graph.addEdge("CF", "C", "F", true);
-        graph.addEdge("CG", "C", "G", true);
-        graph.addAttribute("ui.stylesheet", "graph { fill-color: #E2DFDF; }");
+        Graph graph = new SingleGraph("G", false, true);
 
-//        for (Node n : graph)
-//            n.addAttribute("label", n.getId());
-        for (Edge  n : graph.getEachEdge())
-            e.addAttribute("label", "" + (int) e.getNumber("length"));
+        metaData.addSink(graph);
+        try {
+            metaData.readAll(path);
+        } catch( IOException ignored) {
+        } finally {
+            metaData.removeSink(graph);
+        }
+
+//        Node a = graph.addNode("A");
+//        a.setAttribute("xy", 0, 0, "ui.label");
+//        Node b = graph.addNode("B");
+//        b.setAttribute("xy", -2, -1);
+//        Node c = graph.addNode("C");
+//        c.setAttribute("xy", 2, -1);
+//        Node d = graph.addNode("D");
+//        d.setAttribute("xy", -3, -2);
+//        Node e = graph.addNode("E");
+//        e.setAttribute("xy", -1, -2);
+//        Node f = graph.addNode("F");
+//        f.setAttribute("xy", 1, -2);
+//        Node g = graph.addNode("G");
+//        g.setAttribute("xy", 3, -2);
+//
+//        Edge AB = graph.addEdge("AB", "A", "B", true);
+////        graph.addEdge("AB", "A", "B", true).addAttribute("length", 14);
+//        AB.addAttribute("ui.label", "RIGHT");
+//        graph.addEdge("AC", "A", "C", true);
+//        graph.addEdge("BD", "B", "D", true);
+//        graph.addEdge("BE", "B", "E", true);
+//        graph.addEdge("CF", "C", "F", true);
+//        graph.addEdge("CG", "C", "G", true);
+
+        for (Node node : graph){
+            node.addAttribute("ui.label", node.getId());
+
+        }
+
+
+//        for (Edge  edge : graph.getEachEdge()){
+//            edge.addAttribute("label", "" );//+ (int) edge.getNumber("length"));
+//        }
+
+        graph.addAttribute("ui.stylesheet",
+                "graph{fill-color: #E2DFDF;} " +
+                        "node{ " +
+                        "shape: circle;  " +
+                        "size: 20px, 20px; " +
+                        "fill-color: white;" +
+                        "stroke-mode: plain;" +
+                        "text-mode: normal;" +
+                        "text-mode: normal; " +
+                        "text-style: bold; " +
+                        "text-size: 13; " +
+                        "text-alignment: center;" +
+                        "size-mode: dyn-size;}");
 
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
-        viewer.enableAutoLayout(); //graph will tend to make nodes tied with each other close
+        viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
         View view = viewer.addDefaultView(false);
         view.getCamera().resetView();
 //        view.getCamera().setViewPercent(2); //This will zoom of 200% on the view center.
@@ -116,7 +156,6 @@ public class UI extends JFrame {
         rootPanel.add(rightPanel);
         rootPanel.add(Box.createRigidArea(new Dimension(10, 700)));
 
-
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //close app when close main window
         setContentPane(rootPanel);
         pack();
@@ -125,5 +164,5 @@ public class UI extends JFrame {
 
     }
 
-    
+
 }
