@@ -62,7 +62,7 @@ public class UI extends JFrame {
         HeapSort heapSort = new HeapSort(fileArr.getArray());
 //        heapSort.getSortedArray();
 
-//        String path = "C:/./resource/outGraph.dat";
+//        String path = "C:/java-project/HeapSort/resource/outGraph.dat";
 //        FileSource metaData = FileSourceFactory.sourceFor(path);
 
         /**
