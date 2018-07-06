@@ -14,10 +14,8 @@ public class View {
     }
 
     private void drawSortedArray(HeapSort hp){  //draw of sorted array
-        int lenght = hp.getSortedArray().length;
-        int[] arr =  hp.getSortedArray();
-        for (int i = 0; i < lenght; i++) {
-            graphics.drawRect(300, 60 + i*30, 30, 30, arr[i]);
+        for (Integer i : hp.getSortedArray()){
+            graphics.drawRect(300, 60 + i*30, 30, 30, i);
         }
     }
 

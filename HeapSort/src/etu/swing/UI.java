@@ -67,7 +67,7 @@ public class UI extends JFrame{
 
         FileReadArray file = FileReadArray.init(in);
 
-        HeapSort heapSort = new HeapSort(file.getArray());
+//        HeapSort heapSort = new HeapSort(file.getArray());
 
         View view = new View();
         view.setGraphics(new SwingGraphicsAdapter(this, canvas.getGraphics()));
