@@ -30,6 +30,6 @@ public class SwingGraphicsAdapter implements Graphics {
 
     @Override
     public void showThanks() {
-        JOptionPane.showConfirmDialog(mainFrame, "Thanks for using!", "Congratulations", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showConfirmDialog(mainFrame, "Thanks for using!", "Thanks", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
     }
 }

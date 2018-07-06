@@ -1,10 +1,6 @@
 package etu.view;
 
-import etu.model.HeapSort;
-
 public class View {
-    public void draw(HeapSort hp) {
-    }
 //    private final static int CIRCLE_SIZE = 30;
 //    private final static int LEVEL_SIZE = 20;
 //

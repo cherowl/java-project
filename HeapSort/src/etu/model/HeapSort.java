@@ -1,6 +1,6 @@
 package etu.model;
 
-import java.io.File;
+//import java.io.File;
 import java.util.Objects;
 
 
@@ -15,7 +15,7 @@ public class HeapSort{
         bt.traverse(new SortProcess(arr));
     }
 
-    public int[] getSortedArray(){
+    public int[] getSortedArray() {
         return  arr;
     }
 }
