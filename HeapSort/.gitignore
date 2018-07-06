@@ -1,7 +1,4 @@
-*.imi
+*.iml
+*.xml
 out
 .idea
-<<<<<<< HEAD
-=======
-*.xml
->>>>>>> 8a934c345632b3c11d6bc2d1b2074598686ce394
