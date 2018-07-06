@@ -1,7 +1,24 @@
-package etu.heapSort;
+package etu.model;
 
-//import java.sql.SQLOutput;
+import java.io.File;
 import java.util.Objects;
+
+
+public class HeapSort{
+    public int arr[];
+    // private final File metaData;
+
+    public HeapSort(int[] arr){
+        this.arr = arr;
+        BinTree bt = new BinTree(arr[0]);
+        bt.create(arr);
+        bt.traverse(new SortProcess(arr));
+    }
+
+    public int[] getSortedArray(){
+        return  arr;
+    }
+}
 
 class BinTree{
     public BinTree left;            // левое и правое поддеревья и ключ
@@ -78,19 +95,6 @@ class SortProcess implements VisitorBT {
     }
 }
 
-public class HeapSort{
-    public int arr[];
 
-    public HeapSort(int[] arr){
-        this.arr = arr;
-        BinTree bt = new BinTree(arr[0]);
-        bt.create(arr);
-        bt.traverse(new SortProcess(arr));
-    }
-
-    public int[] getSortedArray(){
-        return  arr;
-    }
-}
 
 

@@ -2,8 +2,9 @@ package etu.swing;
 
 import etu.controller.Controller;
 
-import etu.heapSort.FileReadArray;
-import etu.heapSort.HeapSort;
+import etu.model.FileReadArray;
+import etu.model.FileReadArray;
+import etu.model.HeapSort;
 import etu.view.View;
 
 import javax.swing.*;
@@ -70,7 +71,7 @@ public class UI extends JFrame{
 //        HeapSort heapSort = new HeapSort(file.getArray());
 
         View view = new View();
-        view.setGraphics(new SwingGraphicsAdapter(this, canvas.getGraphics()));
+//        view.setGraphics(new SwingGraphicsAdapter(this, canvas.getGraphics()));
 
         Controller controller = new Controller(view, file);
 
