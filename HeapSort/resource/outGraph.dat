@@ -1,11 +1,11 @@
 DGS004
 triangle 0 8
-an A
-an B
-an C
-an D
-an K
-ae AB A > B
-ae AC A > C
-ae CD C > D
-ae CK C > K
+an 1
+an 2
+an 3
+an 4
+an 5
+ae 12 1 > 2
+ae 13 1 > 3
+ae 34 3 > 4
+ae 35 3 > 5

@@ -4,8 +4,12 @@ package etu.swing;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
+import etu.model.FileReadArray;
+import etu.model.HeapSort;
 import org.graphstream.graph.*;
 import org.graphstream.graph.implementations.*;
 import org.graphstream.stream.file.FileSource;
@@ -41,20 +45,12 @@ public class UI extends JFrame {
         String path = "C:/Users/Sergey/java-project/HeapSort/resource/outGraph.dat";
         FileSource metaData = FileSourceFactory.sourceFor(path);
 
+//        Scanner in = new Scanner("C:/Users/Sergey/java-project/HeapSort/resource/input.dat");
+//        FileReadArray fileArr = FileReadArray.init(in);
+//        HeapSort heapSort = new HeapSort(fileArr.getArray());
+
+
         Graph graph = new SingleGraph("G", true, true);
-
-        for (Node node: graph){
-            node.addAttribute("label", node.getId());
-        }
-
-
-        graph.addAttribute("ui.stylesheet",
-                "graph{fill-color:   gray;} " +
-                        "node{ " +
-                        "shape: circle;  " +
-                        "size:       30px, 30px; " +
-                        "fill-color: white;" +
-                        "stroke-mode:  plain; }");
 
         metaData.addSink(graph);
         try {
@@ -63,6 +59,26 @@ public class UI extends JFrame {
         } finally {
             metaData.removeSink(graph);
         }
+
+        graph.addAttribute("ui.stylesheet",
+                "graph{fill-color:   gray;} " +
+                        "node{ " +
+                        "shape: circle;  " +
+                        "size:       30px, 30px; " +
+                        "fill-color: white;" +
+                        "stroke-mode:  plain;" +
+                        "text-mode: normal;" +
+                        "text-alignment: left;" +
+                        "text-mode: normal; " +
+                        "text-style: bold; " +
+                        "text-size: 20; " +
+                        "size-mode: fit;" +
+                        "}");
+
+        for(Node node:graph){
+            node.addAttribute("label", node.getId());
+        }
+
 
         rightPanel.setPreferredSize(new Dimension(200, 700));
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
