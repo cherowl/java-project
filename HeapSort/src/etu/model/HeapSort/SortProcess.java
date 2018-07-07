@@ -13,14 +13,10 @@ class SortProcess implements VisitorBT {
     }
 
     public void visit(BinTree node){
-        System.out.println(counter);
-        binArr[counter] = node;
         counter = instanceCounter++;
-//        if (node.getRight() != null){
-//            System.out.println(node.getRight().getLevel());
-//        }
-
+        binArr[counter] = node;
         arr[counter] = node.getKey();
+        System.out.println(counter);
         printArr(arr);
 
     }

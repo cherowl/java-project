@@ -21,15 +21,11 @@ public class BuildGraph {
 		w.setAttribute("label", bt.getKey());
 
 		if (bt.getLeft() != null) {
-			KLP(bt.getLeft(), - d - offset, offset/2, i++ );
+			KLP(bt.getLeft(), - d - offset, offset/2, i+1 );
 		}
 
 		if (bt.getRight() != null)
-			KLP(bt.getRight(), d + offset, offset/2, i++ );
-	}
-
-	public void createNode(BinTree binTree){
-
+			KLP(bt.getRight(), d + offset, offset/2, i+1 );
 	}
 
 	public Graph build(){

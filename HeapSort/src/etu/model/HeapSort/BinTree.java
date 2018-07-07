@@ -18,8 +18,7 @@ public class BinTree{
 
     public BinTree(int i){ // конструктор с инициализацией ключа
         key = i;
-        level = 0;
-//        level = getLevel();
+//        level = 0;
     }
 
     /*  insert (добавление нового поддерева (ключа))
@@ -85,5 +84,7 @@ public class BinTree{
         }
         return null;
     }
+
+//    public void printTree(){}
 
 }
