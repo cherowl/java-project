@@ -1,4 +1,4 @@
-package etu.model.HeapSort;
+package etu.model.heapsort;
 
 interface VisitorBT{
     void visit(BinTree node);
