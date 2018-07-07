@@ -10,13 +10,26 @@ public class Controller {
 //        this.view = view;
 //        this.readFile = readFile;
 //    }
-//
-//    public void viewUpdated(){
+
+    /**
+    private void viewUpdated(){ // это Димы
+        if (this.view.isAlive()) this.view = null;
+        this.view = new View();
+        this.view.setGraphics(new SwingGraphicsAdapter(ProjectLauncher.getCanvas().getGraphics()));
+        this.view.start();
+    }
+    */
+    
+//    public void viewUpdated(){ // это наше
 //        view.draw(heapSort);
 //    }
 //
-//    public void StartSort(){
+//    public void startSort(){
 //        heapSort.sort(readFile.getArray());
-//        view.draw(heapSort);
+//        viewUpdated();
+//    }
+//
+//    public void nextStep(){
+//        this.view.nextStep();
 //    }
 }

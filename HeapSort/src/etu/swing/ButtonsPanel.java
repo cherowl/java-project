@@ -5,7 +5,14 @@ import javax.swing.event.AncestorListener;
 import java.awt.*;
 
 public class ButtonsPanel extends JPanel {
-    private final JButton StartSort = createButton("Start Sort", 40, 10);
+    // private final JButton startSort = createButton("Start sort", 40, 10);
+    private final JButton nextStep = createButton("Next step", 40, 10);
+
+    public ButtonsPanel() {
+        super(null);
+        // add(startSort);
+        add(nextStep);
+    }
 
     private JButton createButton(String text, int x, int y) {
         JButton left = new JButton(text);
@@ -16,13 +23,12 @@ public class ButtonsPanel extends JPanel {
         return left;
     }
 
-    public ButtonsPanel() {
-        super(null);
-        add(StartSort);
+    // public void addStartSort(AncestorListener listener) {
+    //     startSort.addAncestorListener(listener);
+    // }
+
+    public void addNextStep(AncestorListener listener) {
+        nextStep.addAncestorListener(listener);
     }
 
-
-    public void addStartSort(AncestorListener listener) {
-        StartSort.addAncestorListener(listener);
-    }
 }
