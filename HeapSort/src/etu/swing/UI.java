@@ -85,7 +85,7 @@ public class UI extends JFrame {
 //                        "text-alignment: center;" +
 //                        "size-mode: dyn-size;}");
 
-        BuildGraph graphB = new BuildGraph(heapSort.getSortedArray());
+        BuildGraph graphB = new BuildGraph(heapSort.getBinArr()[0]);
         Graph graph = graphB.build();
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
         viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close

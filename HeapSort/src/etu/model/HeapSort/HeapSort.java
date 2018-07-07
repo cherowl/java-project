@@ -1,22 +1,30 @@
 package etu.model.HeapSort;
 
-//import java.io.File;
-
 
 public class HeapSort{
-    public int arr[];
-    // private final File metaData;
+    private int arr[];
+    private BinTree[] binArr;
 
     public HeapSort(int[] arr){
         this.arr = arr;
         BinTree bt = new BinTree(arr[0]);
         bt.create(arr);
-        bt.traverse(new SortProcess(arr));
+        SortProcess sp = new SortProcess(arr);
+        bt.traverse(sp);
+        bt.setLevel();
+        this.binArr = sp.getBinArr();
+
     }
 
     public int[] getSortedArray() {
         return  arr;
     }
+
+    public BinTree[] getBinArr() {
+        return binArr;
+    }
+
+
 }
 
 

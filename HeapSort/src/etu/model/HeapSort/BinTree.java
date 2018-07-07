@@ -8,7 +8,6 @@ public class BinTree{
     private BinTree left;            // левое и правое поддеревья и ключ
     private BinTree right;
 
-    private static int instanceCounter = 0;
 
     public void create(int[] arr){
         int i = 1;
@@ -19,8 +18,8 @@ public class BinTree{
 
     public BinTree(int i){ // конструктор с инициализацией ключа
         key = i;
-        level = instanceCounter++;
-
+        level = 0;
+//        level = getLevel();
     }
 
     /*  insert (добавление нового поддерева (ключа))
@@ -51,8 +50,22 @@ public class BinTree{
             right.traverse(visitor);
     }
 
+    public void print(BinTree bt){
+        System.out.println(bt.key);
+    }
     public int getKey(){
         return key;
+    }
+
+    public int utilLevel(BinTree b){
+        if (b == null) {
+            return 0;
+        }
+        else return Math.max(utilLevel(b.getLeft()), utilLevel(b.getRight()))+1;
+    }
+
+    public void setLevel() {
+        this.level = this.utilLevel(this);
     }
 
     public int getLevel() {
@@ -60,11 +73,17 @@ public class BinTree{
     }
 
     public BinTree getLeft() {
-        return left;
+        if(left != null) {
+            return left;
+        }
+        return null;
     }
 
     public BinTree getRight() {
-        return right;
+        if(right != null) {
+            return right;
+        }
+        return null;
     }
 
 }

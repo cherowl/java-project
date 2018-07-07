@@ -6,8 +6,9 @@ import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 
 public class BuildGraph {
-
 	private final BinTree binTree;
+	Graph graph = new SingleGraph("G", false, true);
+
 
 	public BuildGraph (BinTree binTree) {
 		this.binTree = binTree;
@@ -23,16 +24,17 @@ public class BuildGraph {
 			KLP(bt.getLeft(), - d - offset, offset/2, i++ );
 		}
 
-		if (right != null)
+		if (bt.getRight() != null)
 			KLP(bt.getRight(), d + offset, offset/2, i++ );
 	}
 
 	public void createNode(BinTree binTree){
-		
+
 	}
 
 	public Graph build(){
-		Graph graph = new SingleGraph("G", false, true);
+
+		KLP(binTree, 0, 8, 0);
 
 		for (Node node : graph){
 			node.addAttribute("ui.label", node.getAttributeCount());
@@ -51,6 +53,7 @@ public class BuildGraph {
 						"text-size: 20; " +
 						"text-alignment: center;" +
 						"size-mode: dyn-size;}");
+
 
 //		int d = 4;
 //		int offset = 4;
