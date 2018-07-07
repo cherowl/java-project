@@ -147,17 +147,6 @@ public class UI extends JFrame {
             }
         }
 
-
-
-
-
-
-//        BinTree bt = new BinTree(arr[0]);
-//        bt.create(arr);
-//        bt.traverse();
-
-
-
 //    for (int i = 0; i < arr.length; i++){
 //        for (Node node : graph){
 //            node.addAttribute("label", node.key);

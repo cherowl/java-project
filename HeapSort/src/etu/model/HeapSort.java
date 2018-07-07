@@ -6,7 +6,6 @@ import java.util.Objects;
 
 public class HeapSort{
     public int arr[];
-    public int array[][];
     // private final File metaData;
 
     public HeapSort(int[] arr){
@@ -48,18 +47,18 @@ class SortProcess implements VisitorBT {
         System.out.println();
     }
 
-    public int getNumColumnsOfTree(int arr[]){
-        int n = arr.length;
-        int count = 0;
-        for (int i = 0; i < n / 2; ) {
-            while (n-Math.pow(2, i) >= 0) {
-                count++;
-                i++;
-            }
-        }
-        System.out.println(count);
-        return count;
-    }
+    // public int getNumColumnsOfTree(int arr[]){
+    //     int n = arr.length;
+    //     int count = 0;
+    //     for (int i = 0; i < n / 2; ) {
+    //         while (n-Math.pow(2, i) >= 0) {
+    //             count++;
+    //             i++;
+    //         }
+    //     }
+    //     System.out.println(count);
+    //     return count;
+    // }
 
 }
 
