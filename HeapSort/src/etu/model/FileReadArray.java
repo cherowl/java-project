@@ -10,9 +10,9 @@ public class FileReadArray {
     }
 
     public static FileReadArray init(Scanner input) {
-        int lenght = input.nextInt();
-        int[] arr = new int[lenght];
-        for (int i = 0; i < lenght; i++) {
+        int length = input.nextInt();
+        int[] arr = new int[length];
+        for (int i = 0; i < length; i++) {
             arr[i] = input.nextInt();
         }
         return new FileReadArray(arr);

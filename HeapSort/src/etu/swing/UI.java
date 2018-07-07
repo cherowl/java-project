@@ -1,5 +1,7 @@
 package etu.swing;
 
+import etu.model.FileReadArray;
+import etu.model.HeapSort;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
@@ -28,6 +30,7 @@ public class UI extends JFrame {
                 e.printStackTrace();
             }
         });
+        HeapSort hp = new HeapSort(FileReadArray());
     }
 
     private UI() throws HeadlessException, IOException {
