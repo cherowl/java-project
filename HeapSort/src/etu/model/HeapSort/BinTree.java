@@ -11,7 +11,7 @@ public class BinTree{
 
     public void create(int[] arr){
         int i = 1;
-        while (!Objects.equals(i, arr.length-1)){
+        while (!Objects.equals(i, arr.length)){
             insert(new BinTree(arr[i++]));
         }
     }
@@ -49,8 +49,8 @@ public class BinTree{
             right.traverse(visitor);
     }
 
-    public void print(BinTree bt){
-        System.out.println(bt.key);
+    public void print(){
+        System.out.print(this.key+"("+this.level+") ");
     }
     public int getKey(){
         return key;
@@ -85,6 +85,9 @@ public class BinTree{
         return null;
     }
 
-//    public void printTree(){}
-
+    public void printTree(){
+            this.print();
+            if (left!=null) left.printTree();
+            if (right!=null) right.printTree();
+        }
 }
