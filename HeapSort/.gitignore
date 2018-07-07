@@ -1,3 +1,4 @@
-*.imi
+*.iml
+*.xml
 out
 .idea

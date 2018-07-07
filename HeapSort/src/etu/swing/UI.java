@@ -1,5 +1,17 @@
 package etu.swing;
 
+import etu.model.BuildGraph;
+import etu.model.FileReadArray;
+import etu.model.HeapSort.HeapSort;
+
+import org.graphstream.graph.Graph;
+import org.graphstream.graph.Node;
+import org.graphstream.graph.implementations.SingleGraph;
+import org.graphstream.stream.file.FileSource;
+import org.graphstream.stream.file.FileSourceFactory;
+import org.graphstream.ui.swingViewer.ViewPanel;
+import org.graphstream.ui.view.View;
+import org.graphstream.ui.view.Viewer;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -8,15 +20,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-import etu.model.FileReadArray;
-import etu.model.HeapSort;
-import org.graphstream.graph.*;
-import org.graphstream.graph.implementations.*;
-import org.graphstream.stream.file.FileSource;
-import org.graphstream.stream.file.FileSourceFactory;
-import org.graphstream.ui.swingViewer.ViewPanel;
-import org.graphstream.ui.view.View;
-import org.graphstream.ui.view.Viewer;
 
 public class UI extends JFrame {
 
@@ -42,44 +45,6 @@ public class UI extends JFrame {
         rightPanel = new JPanel();
         leftPanel = new JPanel();
 
-        String path = "C:/Users/Sergey/java-project/HeapSort/resource/outGraph.dat";
-        FileSource metaData = FileSourceFactory.sourceFor(path);
-
-//        Scanner in = new Scanner("C:/Users/Sergey/java-project/HeapSort/resource/input.dat");
-//        FileReadArray fileArr = FileReadArray.init(in);
-//        HeapSort heapSort = new HeapSort(fileArr.getArray());
-
-
-        Graph graph = new SingleGraph("G", true, true);
-
-        metaData.addSink(graph);
-        try {
-            metaData.readAll(path);
-        } catch( IOException ignored) {
-        } finally {
-            metaData.removeSink(graph);
-        }
-
-        graph.addAttribute("ui.stylesheet",
-                "graph{fill-color:   gray;} " +
-                        "node{ " +
-                        "shape: circle;  " +
-                        "size:       30px, 30px; " +
-                        "fill-color: white;" +
-                        "stroke-mode:  plain;" +
-                        "text-mode: normal;" +
-                        "text-alignment: left;" +
-                        "text-mode: normal; " +
-                        "text-style: bold; " +
-                        "text-size: 20; " +
-                        "size-mode: fit;" +
-                        "}");
-
-        for(Node node:graph){
-            node.addAttribute("label", node.getId());
-        }
-
-
         rightPanel.setPreferredSize(new Dimension(200, 700));
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
 
@@ -88,11 +53,50 @@ public class UI extends JFrame {
         rightPanel.add(buttons);
         rightPanel.add(Box.createRigidArea(new Dimension(110, 20)));
 
+        Scanner in = new Scanner(new File("resource/input.dat"));
+        FileReadArray fileArr = FileReadArray.init(in);
+        HeapSort heapSort = new HeapSort(fileArr.getArray());
+        heapSort.getSortedArray();
+
+//        String path = "./resource/outGraph.dat";
+//        FileSource metaData = FileSourceFactory.sourceFor(path);
+
+//        Graph graph = new SingleGraph("G", false, true);
+//
+//
+//        metaData.addSink(graph);
+//        try {
+//            metaData.readAll(path);
+//        } catch( IOException ignored) {
+//        } finally {
+//            metaData.removeSink(graph);
+//        }
+//
+//        for (Node node : graph){
+//            node.addAttribute("ui.label", node.getAttributeCount());
+//        }
+//
+//        graph.addAttribute("ui.stylesheet",
+//                "graph{fill-color: gray;} " +
+//                        "node{ " +
+//                        "shape: circle;  " +
+//                        "size: 30px, 30px; " +
+//                        "fill-color: white;" +
+//                        "stroke-mode: plain;" +
+//                        "text-mode: normal;" +
+//                        "text-mode: normal; " +
+//                        "text-style: bold; " +
+//                        "text-size: 20; " +
+//                        "text-alignment: center;" +
+//                        "size-mode: dyn-size;}");
+
+        BuildGraph graphB = new BuildGraph(heapSort.getSortedArray());
+        Graph graph = graphB.build();
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
-        viewer.enableAutoLayout(); //graph will tend to make nodes tied with each other close
+        viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
         View view = viewer.addDefaultView(false);
-//        view.getCamera().resetView();
-//        view.getCamera().setViewPercent(0.5); //This will zoom of 200% on the view center.
+        view.getCamera().resetView();
+//        view.getCamera().setViewPercent(2); //This will zoom of 200% on the view center.
         ((ViewPanel) view).setPreferredSize( new Dimension(750, 630));
 
         JPanel graphPanel = new JPanel();
@@ -102,9 +106,9 @@ public class UI extends JFrame {
         graphPanel.setBorder(new TitledBorder("Graph"));
 
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
-        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10)));
+        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10))); ///what is it?
         leftPanel.add(graphPanel);
-        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10)));
+        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10))); ///what is it?
 
         JPanel rootPanel = new JPanel();
         rootPanel.setPreferredSize(new Dimension(1000, 700)); // size of MainWindow
@@ -116,15 +120,13 @@ public class UI extends JFrame {
         rootPanel.add(rightPanel);
         rootPanel.add(Box.createRigidArea(new Dimension(10, 700)));
 
-
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //close app when close main window
         setContentPane(rootPanel);
         pack();
         setLocationRelativeTo(null); // position window in center
-
-
+        rootPanel.setVisible(true);
 
     }
 
-    
+
 }
