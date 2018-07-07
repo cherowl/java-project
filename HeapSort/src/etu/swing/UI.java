@@ -29,9 +29,6 @@ public class UI extends JFrame {
                 e.printStackTrace();
             }
         });
-//        int[] mas = {33, 43, 3, 11};
-//        HeapSort h = new HeapSort(mas);
-//        h.printSortedTrace();
     }
 
     private UI() throws HeadlessException, IOException {
