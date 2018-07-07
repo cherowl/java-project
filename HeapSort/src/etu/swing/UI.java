@@ -101,9 +101,9 @@ public class UI extends JFrame {
         graphPanel.setBorder(new TitledBorder("Graph"));
 
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
-        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10))); ///what is it?
+        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10)));
         leftPanel.add(graphPanel);
-        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10))); ///what is it?
+        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10)));
 
         JPanel rootPanel = new JPanel();
         rootPanel.setPreferredSize(new Dimension(1000, 700)); // size of MainWindow
