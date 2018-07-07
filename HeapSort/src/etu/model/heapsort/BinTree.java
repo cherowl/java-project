@@ -1,4 +1,4 @@
-package etu.model.HeapSort;
+package etu.model.heapsort;
 
 import java.util.Objects;
 
@@ -50,7 +50,7 @@ public class BinTree{
     }
 
     public void print(){
-        System.out.print(this.key+"("+this.level+") ");
+        System.out.print(" "+this.key+"("+this.level+") ");
     }
     public int getKey(){
         return key;

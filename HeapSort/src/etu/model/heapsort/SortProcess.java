@@ -1,4 +1,4 @@
-package etu.model.HeapSort;
+package etu.model.heapsort;
 
 class SortProcess implements VisitorBT {
     private int[] arr;
@@ -19,7 +19,8 @@ class SortProcess implements VisitorBT {
         arr[counter] = node.getKey();
         System.out.println(counter);
         printArr(arr);
-
+        node.printTree();
+        System.out.println();
     }
 
     private void printArr(int[] arr) {

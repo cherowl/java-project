@@ -1,4 +1,4 @@
-package etu.model.HeapSort;
+package etu.model.heapsort;
 
 
 public class HeapSort{
@@ -13,7 +13,6 @@ public class HeapSort{
         bt.traverse(sp);
         bt.setLevel();
         this.binArr = sp.getBinArr();
-        binArr[3].printTree();
 
     }
 
