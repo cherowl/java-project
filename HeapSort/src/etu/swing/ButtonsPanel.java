@@ -22,7 +22,7 @@ public class ButtonsPanel extends JPanel {
     }
 
 
-    public void startSort(AncestorListener listener) {
+    public void addStartSort(AncestorListener listener) {
         StartSort.addAncestorListener(listener);
     }
 }
