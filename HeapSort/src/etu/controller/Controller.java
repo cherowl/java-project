@@ -1,9 +1,5 @@
 package etu.controller;
 
-import etu.model.FileReadArray;
-import etu.model.HeapSort;
-import etu.view.View;
-
 public class Controller {
 //    private final HeapSort heapSort;
 //    private final FileReadArray readFile;

@@ -13,7 +13,7 @@ public class FileReadArray {
         int lenght = input.nextInt();
         int[] arr = new int[lenght];
         for (int i = 0; i < lenght; i++) {
-            if(input.hasNext()) {
+            if (input.hasNext()) {
                 arr[i] = input.nextInt();
             }
         }

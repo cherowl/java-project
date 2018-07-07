@@ -1,9 +1,11 @@
 DGS004
-triangledpm 0 5
-
-an A xy: 0,0
-an B xy: -3,-1
-an C xy: 3,-1
-
-ae AB A > B
-ae CA C > A
+triangle 0 8
+an 1 xy: 0,0   label: 5
+an 2 xy: -2,-1 label: 2
+an 3 xy:  2,-1 label: 3
+an 4 xy: -3,-2 label: 4
+an 5 xy: -1,-2 label: 9
+ae 12 1 > 2
+ae 13 1 > 3
+ae 34 3 > 4
+ae 35 3 > 5
