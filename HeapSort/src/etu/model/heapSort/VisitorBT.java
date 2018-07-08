@@ -1,4 +1,4 @@
-package etu.model.heapsort;
+package etu.model.heapSort;
 
 import etu.model.heapsort.BinTree.NodeTree;
 

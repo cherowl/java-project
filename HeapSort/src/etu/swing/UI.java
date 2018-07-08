@@ -1,5 +1,6 @@
 package etu.swing;
 
+import etu.controller.Controller;
 import etu.model.BuildGraph;
 import etu.model.FileReadArray;
 import etu.model.heapsort.BinTree.BinTree;
@@ -7,19 +8,21 @@ import org.graphstream.graph.Graph;
 import org.graphstream.ui.swingViewer.ViewPanel;
 import org.graphstream.ui.view.View;
 import org.graphstream.ui.view.Viewer;
-
+import javax.swing.event.AncestorListener;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
-
 
 public class UI extends JFrame {
 
     private final JPanel rightPanel;
     private final JPanel leftPanel;
+    private final ButtonsPanel buttonsPanel = new ButtonsPanel();
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -32,7 +35,6 @@ public class UI extends JFrame {
     }
 
     private UI() throws HeadlessException, IOException {
-        super("Heap Sort Visualisation");
         setPreferredSize(new Dimension(1000, 700));
         setResizable(false);
 
@@ -71,9 +73,9 @@ public class UI extends JFrame {
         graphPanel.setBorder(new TitledBorder("Graph"));
 
         leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
-        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10))); ///what is it?
+        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10)));
         leftPanel.add(graphPanel);
-        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10))); ///what is it?
+        leftPanel.add(Box.createRigidArea(new Dimension(1000, 10)));
 
         JPanel rootPanel = new JPanel();
         rootPanel.setPreferredSize(new Dimension(1000, 700)); // size of MainWindow
@@ -90,8 +92,6 @@ public class UI extends JFrame {
         pack();
         setLocationRelativeTo(null); // position window in center
         rootPanel.setVisible(true);
-
     }
-
 
 }

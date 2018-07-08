@@ -1,7 +1,11 @@
 package etu.swing;
 
+<<<<<<< HEAD
 import etu.model.FileReadArray;
 import etu.model.heapsort.HeapSort;
+=======
+import etu.view.View;
+>>>>>>> master
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +16,13 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ButtonsPanel extends JPanel {
+<<<<<<< HEAD
     private final JButton StartSort = createButton("Sort", 40, 10);
+=======
+    private final JButton StartSort = createButton("Push me", 40, 10);
+    private final JLabel check = createLabel("lalalla", 40, 250);
+//    private final JFrame mainFrame;
+>>>>>>> master
 
     private JButton createButton(String text, int x, int y) {
         JButton left = new JButton(text);
@@ -23,12 +33,22 @@ public class ButtonsPanel extends JPanel {
         return left;
     }
 
+    private JLabel createLabel(String text, int x, int y){
+        JLabel label = new JLabel(text);
+        label.setBounds(x, y, 200, 40);
+//        label.(true);
+        return label;
+    }
+
     public ButtonsPanel() {
-        super(null);
         add(StartSort);
+        add(check);
         StartSort.addActionListener(new ActionListener() {
-            @Override
+//            private JEditorPane jTextArea1;
+//            View view = new View(mainFrame);
+//            @Override
             public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
                 Scanner in = null;
                 try {
                     in = new Scanner(new File("resource/input.dat"));
@@ -44,12 +64,20 @@ public class ButtonsPanel extends JPanel {
                 hp.getBinArr()[0].printTree(hp.getBinArr()[0].getRoot());
                 System.out.println();
 //                hp.getBinArr()[0].displayTree(hp.getBinArr()[0].getRoot(), 1);
+=======
+//                view.showThanksDialog();
+//                System.out.println("Я кнопка и я работаю");
+>>>>>>> master
             }
         });
     }
 
-
 //    public void addStartSort(AncestorListener listener) {
 //        StartSort.addAncestorListener(listener);
+//    }
+
+//    @Override
+//    public void showCongratsDialog() {
+//        JOptionPane.showConfirmDialog(mainFrame, "You are winner!", "Congratulations", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
 //    }
 }

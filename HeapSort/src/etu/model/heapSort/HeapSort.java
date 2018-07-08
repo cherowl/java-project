@@ -1,4 +1,4 @@
-package etu.model.heapsort;
+package etu.model.heapSort;
 
 
 import etu.model.heapsort.BinTree.BinTree;
@@ -24,6 +24,7 @@ public class HeapSort{
     public BinTree[] getBinArr() {
         return binArr;
     }
+<<<<<<< HEAD:HeapSort/src/etu/model/heapsort/HeapSort.java
 
     public void printArray(){
         for (Integer i : arr){
@@ -32,6 +33,8 @@ public class HeapSort{
         System.out.println();
     }
 
+=======
+>>>>>>> master:HeapSort/src/etu/model/heapSort/HeapSort.java
 }
 
 
