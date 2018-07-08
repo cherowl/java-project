@@ -9,32 +9,18 @@ public class BinTree {
         this.arr = arr;
     }
 
-//    private NodeTree addRecursive(NodeTree current, int value, int lvl, int i) {
-//        if (current == null) {
-//            return new NodeTree(value, lvl);
-//        }
-//        if (value < current.value) {
-//            current.left = addRecursive(current.left, value, lvl+1);
-//        } else if (value > current.value) {
-//            current.right = addRecursive(current.right, value, lvl+1);
-//        } else {
-//            // value already exists
-//            return current;
-//        }
-//
-//        return current;
-//    }
+    public void culcateLevel(NodeTree root) {
 
+    }
 
-    public NodeTree createRecursive(NodeTree current, int lvl, int i) {
-        if (current == null && i < arr.length) {
-            return new NodeTree(arr[i], lvl);
+    private NodeTree addRecursive(NodeTree current, int value, int lvl) {
+        if (current == null) {
+            return new NodeTree(value, lvl);
         }
-
-        if ( i < arr.length && arr[i] < current.value) {
-            current.left = createRecursive(current.left, lvl+1, i+1);
-        } else if (i < arr.length && arr[i] > current.value) {
-            current.right = createRecursive(current.right, lvl+1, i+1);
+        if ( value < current.value) {
+            current.left = addRecursive(current.left, value,current.level+1);
+        } else if ( value > current.value) {
+            current.right = addRecursive(current.right, value,current.level+1);
         } else {
             // value already exists
             return current;
@@ -43,17 +29,16 @@ public class BinTree {
         return current;
     }
 
-    public void culcateLevel(NodeTree root) {
+    public void CreateBinTree(){
+        int lvl = 0;
 
+        for (int i = 0; i < arr.length; i++) {
+            if(root == null)
+                lvl = 0;
+            else lvl = root.level;
+            root = addRecursive(root, arr[i], lvl);
+        }
     }
-
-//    public BinTree CreateBinTree(){
-//        root = new NodeTree(arr[0], 0);
-//        for (int i = 0; i < arr.length; i++) {
-//            addRecursive(root, arr[i], 1);
-//        }
-//        return ;
-//    }
 
 
 
