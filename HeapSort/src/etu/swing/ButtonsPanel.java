@@ -23,7 +23,8 @@ public class ButtonsPanel extends JPanel {
         StartSort.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Я кнопка и я работаю");
+//                System.out.println("Я кнопка и я работаю");
+//                e ->
             }
         });
     }

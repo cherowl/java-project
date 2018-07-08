@@ -1,25 +1,28 @@
 package etu.swing;
 
+import etu.controller.Controller;
 import etu.model.BuildGraph;
 import etu.model.FileReadArray;
-import etu.model.heapsort.HeapSort;
+import etu.model.heapSort.HeapSort;
 import org.graphstream.graph.Graph;
 import org.graphstream.ui.swingViewer.ViewPanel;
 import org.graphstream.ui.view.View;
 import org.graphstream.ui.view.Viewer;
-
+import javax.swing.event.AncestorListener;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
-
 
 public class UI extends JFrame {
 
     private final JPanel rightPanel;
     private final JPanel leftPanel;
+    private final ButtonsPanel buttonsPanel = new ButtonsPanel();
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -32,7 +35,6 @@ public class UI extends JFrame {
     }
 
     private UI() throws HeadlessException, IOException {
-        super("Heap Sort Visualisation");
         setPreferredSize(new Dimension(1000, 700));
         setResizable(false);
 
@@ -59,7 +61,7 @@ public class UI extends JFrame {
         viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
         View view = viewer.addDefaultView(false);
         view.getCamera().resetView();
-        view.getCamera().setViewPercent(2); //This will zoom of 200% on the view center.
+        view.getCamera().setViewPercent(4); //This will zoom of 200% on the view center.
         ((ViewPanel) view).setPreferredSize( new Dimension(750, 630));
 
         JPanel graphPanel = new JPanel();
@@ -88,8 +90,6 @@ public class UI extends JFrame {
         pack();
         setLocationRelativeTo(null); // position window in center
         rootPanel.setVisible(true);
-
     }
-
 
 }
