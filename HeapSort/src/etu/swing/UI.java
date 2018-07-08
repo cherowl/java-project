@@ -1,6 +1,7 @@
 package etu.swing;
 
 import etu.model.BuildGraph;
+import etu.model.FileReadArray;
 import etu.model.heapsort.BinTree.BinTree;
 import org.graphstream.graph.Graph;
 import org.graphstream.ui.swingViewer.ViewPanel;
@@ -10,7 +11,9 @@ import org.graphstream.ui.view.Viewer;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.util.Scanner;
 
 
 public class UI extends JFrame {
@@ -45,15 +48,27 @@ public class UI extends JFrame {
         rightPanel.add(buttons);
         rightPanel.add(Box.createRigidArea(new Dimension(110, 20)));
 
+        Scanner in = new Scanner(new File("resource/input.dat"));
+        FileReadArray fileArr = FileReadArray.init(in);
 
-        BinTree binaryTree = new BinTree();
-        binaryTree.add(4, 0);
-        binaryTree.add(2, 1);
-        binaryTree.add(3, 1);
-        binaryTree.add(5, 2);
-        binaryTree.add(1, 2);
-        binaryTree.printTree(binaryTree.getRoot());
+//        int[] mas = {4, 2, 4, 5, 1}
+//
+//        BinTree binaryTree = new BinTree();
+//        binaryTree.arr = mas;
+
+//        binaryTree.add(4, 0);
+//        binaryTree.add(2, 1);
+//        binaryTree.add(3, 1);
+//        binaryTree.add(5, 2);
+//        binaryTree.add(1, 2);
+//        binaryTree.printTree(binaryTree.getRoot());
 //        BuildGraph graphB = new BuildGraph();
+
+
+        BinTree binaryTree = new BinTree(fileArr.getArray());
+        binaryTree.createRecursive(binaryTree.getRoot(), 0, 0);
+        binaryTree.printTree(binaryTree.getRoot());
+
 
         BuildGraph graphB = new BuildGraph(binaryTree.getRoot());
         Graph graph = graphB.build();
