@@ -3,7 +3,11 @@ package etu.swing;
 import etu.controller.Controller;
 import etu.model.BuildGraph;
 import etu.model.FileReadArray;
+<<<<<<< HEAD
 import etu.model.heapSort.HeapSort;
+=======
+import etu.model.heapsort.BinTree.BinTree;
+>>>>>>> main/master
 import org.graphstream.graph.Graph;
 import org.graphstream.ui.swingViewer.ViewPanel;
 import org.graphstream.ui.view.View;
@@ -52,16 +56,25 @@ public class UI extends JFrame {
 
         Scanner in = new Scanner(new File("resource/input.dat"));
         FileReadArray fileArr = FileReadArray.init(in);
-        HeapSort heapSort = new HeapSort(fileArr.getArray());
-        heapSort.getSortedArray();
 
-        BuildGraph graphB = new BuildGraph(heapSort.getBinArr()[3]);
+        BinTree binaryTree = new BinTree(fileArr.getArray());
+        binaryTree.createBinTree();
+        binaryTree.printTree(binaryTree.getRoot());
+
+//        HeapSort heapSort = new HeapSort(fileArr.getArray());
+//        heapSort.getSortedArray();
+
+        BuildGraph graphB = new BuildGraph(binaryTree.getRoot());
         Graph graph = graphB.build();
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
         viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
         View view = viewer.addDefaultView(false);
         view.getCamera().resetView();
+<<<<<<< HEAD
         view.getCamera().setViewPercent(4); //This will zoom of 200% on the view center.
+=======
+        view.getCamera().setViewPercent(2.5); //This will zoom of 200% on the view center.
+>>>>>>> main/master
         ((ViewPanel) view).setPreferredSize( new Dimension(750, 630));
 
         JPanel graphPanel = new JPanel();

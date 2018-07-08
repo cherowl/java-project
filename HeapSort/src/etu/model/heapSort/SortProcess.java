@@ -1,25 +1,27 @@
 package etu.model.heapSort;
 
+import etu.model.heapsort.BinTree.NodeTree;
+
 class SortProcess implements VisitorBT {
     private int[] arr;
-    private BinTree[] binArr;
+    private NodeTree[] binArr;
     private static int instanceCounter = 0;
     private int counter;
 
 
     SortProcess(int[] arr) {
         this.arr = arr;
-        this.binArr = new BinTree[arr.length];
+        this.binArr = new NodeTree[arr.length];
     }
 
-    public void visit(BinTree node){
+    public void visit(NodeTree node){
         counter = instanceCounter++;
-        node.setLevel();
+//        node.setLevel();
         binArr[counter] = node;
-        arr[counter] = node.getKey();
+//        arr[counter] = node.getKey();
         System.out.println(counter);
         printArr(arr);
-        node.printTree();
+//        node.printTree();
         System.out.println();
     }
 
@@ -30,7 +32,7 @@ class SortProcess implements VisitorBT {
         System.out.println();
     }
 
-    public BinTree[] getBinArr() {
+    public NodeTree[] getBinArr() {
         return binArr;
     }
 }
