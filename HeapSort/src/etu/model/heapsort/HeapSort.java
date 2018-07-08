@@ -2,7 +2,6 @@ package etu.model.heapsort;
 
 
 import etu.model.heapsort.BinTree.BinTree;
-import etu.model.heapsort.BinTree.NodeTree;
 
 public class HeapSort{
     private int arr[];
@@ -18,7 +17,7 @@ public class HeapSort{
     }
 
 
-    public int[] getSortedArray() {
+    public int[] getArray() {
         return  arr;
     }
 
@@ -26,6 +25,12 @@ public class HeapSort{
         return binArr;
     }
 
+    public void printArray(){
+        for (Integer i : arr){
+            System.out.print(" "+i.intValue());
+        }
+        System.out.println();
+    }
 
 }
 

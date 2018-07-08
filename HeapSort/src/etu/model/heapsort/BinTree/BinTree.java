@@ -35,14 +35,6 @@ public class BinTree {
         return root;
     }
 
-    public void printTree(NodeTree root){
-        if(root != null){
-            System.out.println(root.value + " (" + root.level + ") ");
-            if (root.left!=null) printTree(root.left);
-            if (root.right!=null) printTree(root.right);
-        }
-    }
-
     public static int size(NodeTree node) {
         if(node == null)
             return 0;
@@ -50,4 +42,11 @@ public class BinTree {
             return size(node.left) + 1 + size(node.right);
     }
 
+    public void printTree(NodeTree root){
+        if(root != null){
+            System.out.print(root.value + " (" + root.level + ") ");
+            if (root.left!=null) printTree(root.left);
+            if (root.right!=null) printTree(root.right);
+        }
+    }
 }

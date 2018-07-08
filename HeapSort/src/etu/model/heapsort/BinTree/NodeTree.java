@@ -44,7 +44,7 @@ public class NodeTree {
 	}
 
     public void print() {
-        System.out.println(value);
+        System.out.print(value+" ");
     }
 
 	/*  insert (добавление нового поддерева (ключа))

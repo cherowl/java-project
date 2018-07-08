@@ -55,9 +55,6 @@ public class UI extends JFrame {
         binaryTree.createBinTree();
         binaryTree.printTree(binaryTree.getRoot());
 
-//        HeapSort heapSort = new HeapSort(fileArr.getArray());
-//        heapSort.getSortedArray();
-
         BuildGraph graphB = new BuildGraph(binaryTree.getRoot());
         Graph graph = graphB.build();
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);

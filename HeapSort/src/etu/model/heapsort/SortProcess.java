@@ -21,12 +21,10 @@ class SortProcess implements VisitorBT {
         binArr[counter] = (new BinTree(arr)).createBinTree();
 
         System.out.println(counter);
-        printArr(arr);
-//        node.printTree();
-        System.out.println();
+        printArray(arr);
     }
 
-    private void printArr(int[] arr) {
+    private void printArray(int[] arr) {
         for (Integer i : arr){
             System.out.print(" "+i.intValue());
         }
