@@ -1,8 +1,7 @@
 package etu.swing;
 
 import etu.model.BuildGraph;
-import etu.model.FileReadArray;
-import etu.model.heapsort.HeapSort;
+import etu.model.heapsort.BinTree.BinTree;
 import org.graphstream.graph.Graph;
 import org.graphstream.ui.swingViewer.ViewPanel;
 import org.graphstream.ui.view.View;
@@ -11,9 +10,7 @@ import org.graphstream.ui.view.Viewer;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
-import java.util.Scanner;
 
 
 public class UI extends JFrame {
@@ -48,19 +45,39 @@ public class UI extends JFrame {
         rightPanel.add(buttons);
         rightPanel.add(Box.createRigidArea(new Dimension(110, 20)));
 
-        Scanner in = new Scanner(new File("resource/input.dat"));
-        FileReadArray fileArr = FileReadArray.init(in);
-        HeapSort heapSort = new HeapSort(fileArr.getArray());
-        heapSort.getSortedArray();
 
-        BuildGraph graphB = new BuildGraph(heapSort.getBinArr()[3]);
+        BinTree binaryTree = new BinTree();
+        binaryTree.add(4, 0);
+        binaryTree.add(2, 1);
+        binaryTree.add(3, 1);
+        binaryTree.add(5, 2);
+        binaryTree.add(1, 2);
+        binaryTree.printTree(binaryTree.getRoot());
+//        BuildGraph graphB = new BuildGraph();
+
+        BuildGraph graphB = new BuildGraph(binaryTree.getRoot());
         Graph graph = graphB.build();
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
         viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
         View view = viewer.addDefaultView(false);
         view.getCamera().resetView();
-        view.getCamera().setViewPercent(2); //This will zoom of 200% on the view center.
+        view.getCamera().setViewPercent(2.5); //This will zoom of 200% on the view center.
         ((ViewPanel) view).setPreferredSize( new Dimension(750, 630));
+
+//
+//        Scanner in = new Scanner(new File("resource/input.dat"));
+//        FileReadArray fileArr = FileReadArray.init(in);
+//        HeapSort heapSort = new HeapSort(fileArr.getArray());
+//        heapSort.getSortedArray();
+
+//        BuildGraph graphB = new BuildGraph(heapSort.getBinArr()[3]);
+//        Graph graph = graphB.build();
+//        Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
+//        viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
+//        View view = viewer.addDefaultView(false);
+//        view.getCamera().resetView();
+//        view.getCamera().setViewPercent(2); //This will zoom of 200% on the view center.
+//        ((ViewPanel) view).setPreferredSize( new Dimension(750, 630));
 
         JPanel graphPanel = new JPanel();
         graphPanel.add((JPanel)view);
