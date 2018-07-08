@@ -30,30 +30,6 @@ public class BinTree {
         }
     }
 
-
-
-//    public int utilLevel(NodeTree n){
-//        if (n == null) {
-//            return 0;
-//        }
-//        return Math.max(utilLevel(n.left), utilLevel(n.right))+1;
-//    }
-
-//    public void setLevel(NodeTree root) {
-////        if (root.left!=null) setLevel(root.left);
-////        root.level = this.utilLevel(root);
-////        if (root.right!=null) setLevel(root.right);
-//        if (root.left!=null) setLevel(root.left);
-//        root.level = this.findHeight(root);
-//        if (root.right!=null) setLevel(root.right);
-////        int ilev = 0;
-////        if (root != null){
-////            btMas[indexRoot].lev = btMas[p].lev + 1;
-////            putlevels(indexRoot, left(indexRoot));
-////            putlevels(indexRoot, right(indexRoot));
-////        }
-//    }
-
     public NodeTree getRoot() {
         return root;
     }
