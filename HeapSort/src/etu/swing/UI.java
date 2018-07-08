@@ -64,9 +64,7 @@ public class UI extends JFrame {
 
         BinTree binaryTree = new BinTree(fileArr.getArray());
         binaryTree.createBinTree();
-        binaryTree.printTree(binaryTree.getRoot());
-        System.out.println();
-
+//        binaryTree.printTree(binaryTree.getRoot());
         System.out.println();
 
 
