@@ -5,10 +5,12 @@ import etu.model.heapsort.BinTree.BinTree;
 
 public class HeapSort{
     private int arr[];
-    private BinTree[] binTrees;
+    private BinTree[] binArr;
 
     public HeapSort(int[] arr){
         this.arr = arr;
+        System.out.print("Unsorted array: ");
+        printArray();
         BinTree bt = new BinTree(arr);
         bt.createBinTree();
         SortProcess sp = new SortProcess(arr);
@@ -22,7 +24,7 @@ public class HeapSort{
     }
 
     public BinTree[] getBinArr() {
-        return binTrees;
+        return binArr;
     }
 
     public void printArray(){
