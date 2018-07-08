@@ -60,7 +60,7 @@ public class UI extends JFrame {
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
         viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
         View view = viewer.addDefaultView(false);
-        view.getCamera().resetView();
+//        view.getCamera().resetView();
 //        view.getCamera().setViewPercent(2.5); //This will zoom of 200% on the view center.
         ((ViewPanel) view).setPreferredSize( new Dimension(750, 630));
 

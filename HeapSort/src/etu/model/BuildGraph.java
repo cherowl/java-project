@@ -5,8 +5,7 @@ import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.Stack;
 
 public class BuildGraph {
 
@@ -18,59 +17,32 @@ public class BuildGraph {
 		this.nodeTree = nodeTree;
 	}
 
-	public void createNodes(NodeTree b, int d, int offset, int k) {
-		if (b == null) {
+	public void createNodes(NodeTree node, int offset) {
+		if (node == null) {
 			return;
 		}
-		System.out.print("The value of the root is: "); b.print();
-//		int i = 0;
-		int count = 1;
-		Queue<NodeTree> queue = new LinkedList<>();
-		queue.add(b);
-		do {
-			int newd = 0;
-			NodeTree bt = queue.remove();
-			if( 1 == count){
-				Node w = graph.addNode(String.valueOf(i++));
-				w.setAttribute("xy", d, -bt.getLevel() * 4);
-				w.setAttribute("label", bt.getValue());
-				System.out.print("root: " + bt.getValue()+" lev: "+bt.getLevel() + " p: 0");
-				System.out.print(" d: "+d+" o: "+offset);
-				System.out.println();
-//                offset = newd;
 
-			}
-			if(1 != count) offset /= 2;
-			if (bt.getLeft() != null) {
-				Node e = graph.addNode(String.valueOf(i++));
-				e.setAttribute("xy", d - offset, -bt.getLeft().getLevel() * 4);
+		int max_depth = BinTree.maxDepth(node);
 
-				e.setAttribute("label", bt.getLeft().getValue());
-				System.out.print("left: "+bt.getLeft().getValue()+" lev: "+bt.getLeft().getLevel()+ " p: "+bt.getLeft().getParent());
-				newd = d - offset;
-				System.out.print(" d: "+newd+" o: "+offset);
+		if( i == 0 ){
+			Node w = graph.addNode(String.valueOf(i++));
+			w.setAttribute("xy", 0, -node.getLevel()* 30);
+			w.setAttribute("label", node.getValue());
+		}
 
-				System.out.println();
+		if (node.getLeft() != null) {
+			Node e = graph.addNode(String.valueOf(i++));
+			e.setAttribute("xy", offset - 30*Math.pow(2, max_depth - node.getLeft().getLevel()), - node.getLeft().getLevel() * 30);
+			e.setAttribute("label", node.getLeft().getValue());
+			createNodes(node.getLeft(), offset - 30*(int)Math.pow(2, max_depth - node.getLeft().getLevel()));
+		}
 
-				offset = newd;
-				queue.add(bt.getLeft());
-
-			}
-			if (bt.getRight() != null) {
-				Node q = graph.addNode(String.valueOf(i++));
-				q.setAttribute("xy", d + offset ,  -bt.getRight().getLevel() * 4);
-				q.setAttribute("label", bt.getRight().getValue());
-				System.out.print( "right: "+bt.getRight().getValue()+" lev: "+bt.getRight().getLevel()+ " p: "+bt.getRight().getParent());
-				newd = d + offset;
-				System.out.print(" d: "+newd+" o: "+offset);
-
-				System.out.println();
-
-				offset = newd;
-				queue.add(bt.getRight());
-			}
-			count++;
-		} while (!queue.isEmpty());
+		if (node.getRight() != null) {
+			Node q = graph.addNode(String.valueOf(i++));
+			q.setAttribute("xy", offset + 30*Math.pow(2, max_depth - node.getRight().getLevel()) ,  -node.getRight().getLevel() * 30);
+			q.setAttribute("label", node.getRight().getValue());
+			createNodes(node.getRight(), offset + 30*(int)Math.pow(2, max_depth - node.getRight().getLevel()));
+		}
 	}
 
 	public void createEdges(){
@@ -84,8 +56,8 @@ public class BuildGraph {
 
 	public Graph build(){
 
-		createNodes(nodeTree, 0, 10, 0);
-		createEdges();
+		createNodes(nodeTree, 5);
+//		createEdges();
 
 		for (Node node : graph){
 			node.addAttribute("ui.label", node.getAttributeCount());

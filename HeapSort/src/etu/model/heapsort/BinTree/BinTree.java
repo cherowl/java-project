@@ -51,6 +51,13 @@ public class BinTree {
         }
     }
 
+    public static int maxDepth(NodeTree root) {
+        // Start typing your Java solution below
+        // DO NOT write main() function
+        if(root==null) return 0;
+        return Math.max(maxDepth(root.left), maxDepth(root.right))+1;
+    }
+
 //    public void displayTree(NodeTree root, int n)
 //    {
 //        if(root != null){
