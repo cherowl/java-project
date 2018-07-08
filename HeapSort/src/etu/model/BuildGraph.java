@@ -33,7 +33,7 @@ public class BuildGraph {
 				w.setAttribute("xy", d, -bt.getLevel() * 2);
 				w.setAttribute("label", bt.getValue());
 				System.out.print("root: " + bt.getValue()+" lev: "+bt.getLevel());
-				bt.setLevel(b);
+				bt.setLevel();
 				System.out.println();
 
 			}
@@ -44,7 +44,7 @@ public class BuildGraph {
 
 				e.setAttribute("label", bt.getLeft().getValue());
 				System.out.print("left: "+bt.getLeft().getValue()+" lev: "+bt.getLeft().getLevel());
-				bt.getLeft().setLevel(b);
+				bt.getLeft().setLevel();
 				System.out.println();
 
 				queue.add(bt.getLeft());
@@ -55,7 +55,7 @@ public class BuildGraph {
 				q.setAttribute("xy", d + offset ,  -bt.getRight().getLevel() * 2);
 				q.setAttribute("label", bt.getRight().getValue());
 				System.out.print( "right: "+bt.getRight().getValue()+" lev: "+bt.getRight().getLevel());
-				bt.getRight().setLevel(b);
+				bt.getRight().setLevel();
 				System.out.println();
 
 				queue.add(bt.getRight());

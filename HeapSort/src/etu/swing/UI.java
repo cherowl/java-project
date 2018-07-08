@@ -51,24 +51,12 @@ public class UI extends JFrame {
         Scanner in = new Scanner(new File("resource/input.dat"));
         FileReadArray fileArr = FileReadArray.init(in);
 
-//        int[] mas = {4, 2, 4, 5, 1}
-//
-//        BinTree binaryTree = new BinTree();
-//        binaryTree.arr = mas;
-
-//        binaryTree.add(4, 0);
-//        binaryTree.add(2, 1);
-//        binaryTree.add(3, 1);
-//        binaryTree.add(5, 2);
-//        binaryTree.add(1, 2);
-//        binaryTree.printTree(binaryTree.getRoot());
-//        BuildGraph graphB = new BuildGraph();
-
-
         BinTree binaryTree = new BinTree(fileArr.getArray());
-        binaryTree.createRecursive(binaryTree.getRoot(), 0, 0);
+        binaryTree.createBinTree();
         binaryTree.printTree(binaryTree.getRoot());
 
+//        HeapSort heapSort = new HeapSort(fileArr.getArray());
+//        heapSort.getSortedArray();
 
         BuildGraph graphB = new BuildGraph(binaryTree.getRoot());
         Graph graph = graphB.build();
@@ -78,21 +66,6 @@ public class UI extends JFrame {
         view.getCamera().resetView();
         view.getCamera().setViewPercent(2.5); //This will zoom of 200% on the view center.
         ((ViewPanel) view).setPreferredSize( new Dimension(750, 630));
-
-//
-//        Scanner in = new Scanner(new File("resource/input.dat"));
-//        FileReadArray fileArr = FileReadArray.init(in);
-//        HeapSort heapSort = new HeapSort(fileArr.getArray());
-//        heapSort.getSortedArray();
-
-//        BuildGraph graphB = new BuildGraph(heapSort.getBinArr()[3]);
-//        Graph graph = graphB.build();
-//        Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
-//        viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
-//        View view = viewer.addDefaultView(false);
-//        view.getCamera().resetView();
-//        view.getCamera().setViewPercent(2); //This will zoom of 200% on the view center.
-//        ((ViewPanel) view).setPreferredSize( new Dimension(750, 630));
 
         JPanel graphPanel = new JPanel();
         graphPanel.add((JPanel)view);

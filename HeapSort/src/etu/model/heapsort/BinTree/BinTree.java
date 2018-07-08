@@ -8,30 +8,14 @@ public class BinTree {
         this.arr = arr;
     }
 
-//    private NodeTree addRecursive(NodeTree current, int value, int lvl) {
-//        if (current == null) {
-//            return new NodeTree(value, lvl);
-//        }
-//
-//        if (value < current.value) {
-//            current.left = addRecursive(current.left, value, lvl);
-//        } else if (value > current.value) {
-//            current.right = addRecursive(current.right, value, lvl);
-//        } else {
-//            // value already exists
-//            return current;
-//        }
-//
-//        return current;
-//    }
-    private NodeTree addRecursive(NodeTree current, int lvl, int i) {
+    private NodeTree addRecursive(NodeTree current, int value, int lvl, NodeTree parent) {
         if (current == null) {
-            return new NodeTree(arr[i], lvl);
+            return new NodeTree(value, lvl, parent);
         }
-        if (arr[i] < current.value) {
-            current.left = addRecursive(current.left, lvl+1, i+1);
-        } else if (arr[i] > current.value) {
-            current.right = addRecursive(current.right, lvl+1, i+1);
+        if ( value < current.value) {
+            current.left = addRecursive(current.left, value,current.level+1, current);
+        } else if ( value > current.value) {
+            current.right = addRecursive(current.right, value,current.level+1, current);
         } else {
             // value already exists
             return current;
@@ -40,48 +24,15 @@ public class BinTree {
         return current;
     }
 
-    public void CreateBinTree(){
-        root = new NodeTree(arr[0], 0);
-        addRecursive(root, 0, 0);
-    }
+    public void createBinTree(){
+        int lvl = 0;
 
-
-    public void add(int value, int lvl) {
-        root = addRecursive(root, value, lvl);
-    }
-
-//        private NodeTree addRecursive(NodeTree current, int value, int lvl, int i) {
-//        if (current == null) {
-//            return new NodeTree(value, lvl);
-//        }
-//        if (value < current.value) {
-//            current.left = addRecursive(current.left, value, lvl+1);
-//        } else if (value > current.value) {
-//            current.right = addRecursive(current.right, value, lvl+1);
-//        } else {
-//            // value already exists
-//            return current;
-//        }
-//
-//        return current;
-//    }
-
-
-    public NodeTree createRecursive(NodeTree current, int lvl, int i) {
-        if (current == null && i < arr.length) {
-            return new NodeTree(arr[i], lvl);
+        for (int i = 0; i < arr.length; i++) {
+            if(root == null)
+                lvl = 0;
+            else lvl = root.level;
+            root = addRecursive(root, arr[i], lvl, null);
         }
-
-        if ( i < arr.length && arr[i] < current.value) {
-            current.left = createRecursive(current.left, lvl+1, i+1);
-        } else if (i < arr.length && arr[i] > current.value) {
-            current.right = createRecursive(current.right, lvl+1, i+1);
-        } else {
-            // value already exists
-            return current;
-        }
-
-        return current;
     }
 
 
