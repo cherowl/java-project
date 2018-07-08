@@ -22,6 +22,6 @@ public class Controller {
     public void StartSort(){
 //        heapSort.sort(readFile.getArray());
 //        view.draw(heapSort);
-        System.out.println("testttttt");
+//        view.showThanksDialog();
     }
 }

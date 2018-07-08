@@ -1,9 +1,24 @@
 package etu.view;
 
+import javax.swing.*;
+
 public class View extends Thread{
     private final static int CIRCLE_SIZE = 30;
     private final static int LEVEL_SIZE = 20;
 //
+private final JFrame mainFrame;
+    private Graphics graphics;
+
+    public View(JFrame mainFrame) {
+        this.mainFrame = mainFrame;
+    }
+
+//    public void showThanksDialog() {
+//        graphics.showThanks();
+//    }
+    public void showCongratsDialog() {
+        JOptionPane.showConfirmDialog(mainFrame, "You are winner!", "Congratulations", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+    }
 //    private Graphics graphics;
 //
 //    public void draw(heapSort heapSort){
