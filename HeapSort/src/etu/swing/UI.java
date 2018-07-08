@@ -85,12 +85,8 @@ public class UI extends JFrame {
 //                        "text-alignment: center;" +
 //                        "size-mode: dyn-size;}");
 
-        BinTree binaryTree = new BinTree();
-        binaryTree.add(4, 0);
-        binaryTree.add(2, 1);
-        binaryTree.add(3, 1);
-        binaryTree.add(5, 2);
-        binaryTree.add(1, 2);
+        BinTree binaryTree = new BinTree(fileArr.getArray());
+        binaryTree.createRecursive(binaryTree.getRoot(), 0, 0);
         binaryTree.printTree(binaryTree.getRoot());
 //        BuildGraph graphB = new BuildGraph();
 
