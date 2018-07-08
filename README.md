@@ -4,7 +4,7 @@
 # Using tools
 * [swing] - Java library for draw elemnts
 * [GraphStream] - Java library for grow graph (http://graphstream-project.org/)
-![GraphStream] (http://graphstream-project.org/img/gs-logo.png)
+![GraphStream](http://graphstream-project.org/img/gs-logo.png)
 
 # Developers
 > ELena Chercasova
