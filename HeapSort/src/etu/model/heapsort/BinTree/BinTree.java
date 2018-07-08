@@ -8,14 +8,14 @@ public class BinTree {
         this.arr = arr;
     }
 
-    private NodeTree addRecursive(NodeTree current, int value, int lvl, NodeTree parent) {
+    private NodeTree addRecursive(NodeTree current, int value, NodeTree parent) {
         if (current == null) {
-            return new NodeTree(value, lvl, parent);
+            return new NodeTree(value, parent);
         }
         if ( value < current.value) {
-            current.left = addRecursive(current.left, value,current.level+1, current);
+            current.left = addRecursive(current.left, value, current);
         } else if ( value > current.value) {
-            current.right = addRecursive(current.right, value,current.level+1, current);
+            current.right = addRecursive(current.right, value, current);
         } else {
             // value already exists
             return current;
@@ -25,13 +25,8 @@ public class BinTree {
     }
 
     public void createBinTree(){
-        int lvl = 0;
-
         for (int i = 0; i < arr.length; i++) {
-            if(root == null)
-                lvl = 0;
-            else lvl = root.level;
-            root = addRecursive(root, arr[i], lvl, null);
+            root = addRecursive(root, arr[i], null);
         }
     }
 

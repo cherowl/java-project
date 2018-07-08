@@ -22,7 +22,6 @@ public class NodeTree {
     }
 
     public void setLevel() {
-        System.out.print(" makelev: "+this.depth(this));
         this.level = this.depth(this);
     }
 
