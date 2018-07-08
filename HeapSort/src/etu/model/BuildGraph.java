@@ -12,78 +12,71 @@ public class BuildGraph {
 
 	private final NodeTree nodeTree;
 	Graph graph = new SingleGraph("G", false, true);
+	int i = 0;
 
 	public BuildGraph (NodeTree nodeTree) {
-		this.nodeTree = nodeTree;
+	    this.nodeTree = nodeTree;
 	}
 
-	public void KLP(NodeTree bt, int d, int offset, int k) {
-//
-//		if (bt.getLeft() != null) {
-//			KLP(bt.getLeft(), (d - offset), offset / 2, i + 1);
-//		}
-//
-//		if (bt.getRight() != null)
-//			KLP(bt.getRight(), (d + offset), offset / 2, i + 1);
-//
-//
-		int i = 0;
+	public void createNodes(NodeTree b, int d, int offset, int k) {
+		if (b == null) {
+            return;
+        }
+        System.out.print("The value of the root is: "); b.print();
+//        int i = 0;
 		int count = 1;
 		Queue<NodeTree> queue = new LinkedList<>();
+		queue.add(b);
 		do {
-			Node w = graph.addNode(String.valueOf(i++));
-			w.setAttribute("xy", d, -bt.getLevel() * 2);
-			w.setAttribute("label", bt.getValue());
-			System.out.println(bt.getValue());
+			NodeTree bt = queue.remove();
+			if( count == 1){
+				Node w = graph.addNode(String.valueOf(i++));
+				w.setAttribute("xy", d, -bt.getLevel() * 4);
+				w.setAttribute("label", bt.getValue());
+				System.out.print("root: " + bt.getValue()+" lev: "+bt.getLevel());
+				bt.setLevel();
+				System.out.println();
+
+			}
 			if(1 != count++) offset /= 2;
 			if (bt.getLeft() != null) {
 				Node e = graph.addNode(String.valueOf(i++));
-				e.setAttribute("xy", d - offset, -bt.getLeft().getLevel() * 2);
+				e.setAttribute("xy", d - offset, -bt.getLeft().getLevel() * 4);
 
 				e.setAttribute("label", bt.getLeft().getValue());
+				System.out.print("left: "+bt.getLeft().getValue()+" lev: "+bt.getLeft().getLevel());
+				bt.getLeft().setLevel();
+				System.out.println();
+
 				queue.add(bt.getLeft());
-				System.out.println(bt.getLeft().getValue());
 
 			}
 			if (bt.getRight() != null) {
 				Node q = graph.addNode(String.valueOf(i++));
-				q.setAttribute("xy", d + offset ,  -bt.getRight().getLevel() * 2);
-//				offset /= 2;
+				q.setAttribute("xy", d + offset ,  -bt.getRight().getLevel() * 4);
 				q.setAttribute("label", bt.getRight().getValue());
+				System.out.print( "right: "+bt.getRight().getValue()+" lev: "+bt.getRight().getLevel());
+				bt.getRight().setLevel();
+				System.out.println();
+
 				queue.add(bt.getRight());
-				System.out.println( bt.getRight().getValue());
 			}
-			if (!queue.isEmpty()) bt = queue.poll();
 		} while (!queue.isEmpty());
 	}
-//
-//	public void KLP(NodeTree bt, int d, int offset) {
-//		int i = 0;
-//		int countNode = 1;
-//		while (BinTree.size(bt) != countNode++) {
-//			Node w = graph.addNode(String.valueOf(i++));
-//			d += offset;
-//			if ( countNode != 1) offset /= 2;
-//			w.setAttribute("xy", d ,  -bt.getLevel() * 2);
-//			w.setAttribute("label", bt.getValue());
-//
-//			if (bt.getLeft() != null) {
-//				Node e = graph.addNode(String.valueOf(i++));
-//				e.setAttribute("xy", d - offset, -bt.getLevel() * 2);
-//				e.setAttribute("label", bt.getValue());
-//			}
-//
-//			if (bt.getRight() != null){
-//				Node q = graph.addNode(String.valueOf(i++));
-//				q.setAttribute("xy", d + offset ,  -bt.getLevel() * 2);
-//				q.setAttribute("label", bt.getValue());
-//			}
-//
-//	}
+
+	public void createEdges(NodeTree b) {
+		for (int j = 1, k = 0; j < i; j++) {
+			graph.addEdge(String.valueOf(j), String.valueOf(k), String.valueOf(j), true);
+			if (j % 2 == 0) {
+				k++;
+			}
+		}
+	}
 
 	public Graph build(){
 
-		KLP(nodeTree, 0, 8, 0);
+		createNodes(nodeTree, 0, 8, 0);
+		createEdges(nodeTree);
 
 		for (Node node : graph){
 			node.addAttribute("ui.label", node.getAttributeCount());
@@ -103,37 +96,6 @@ public class BuildGraph {
 						"text-alignment: center;" +
 						"size-mode: dyn-size;}");
 
-
-//		int d = 4;
-//		int offset = 4;
-//		int axis_x = 0;
-//		int level = 0, count_el_on_vlv = 0;
-//		for (int i = 1; i < metaData.length-1; i++) {
-//			count_el_on_vlv = (int)Math.pow(2, i);
-//
-//			if( i == count_el_on_vlv && i!=0 ) {
-//				offset = (int)Math.pow(-1,i)*offset;
-//				axis_x += offset;
-//				offset /= 2;
-//				level++;
-//				System.out.println("level++");
-//			}
-//			NodeTree w = graph.addNode(String.valueOf(i));
-//			w.setAttribute("xy", axis_x, -level);
-//
-////			if(i == 0) {
-////				w.setAttribute("xy", 0, 0);
-////				level++;
-////			}else if( i == 1 || i == 2){
-////				w.setAttribute("xy", Math.pow(-1, i) * d, -level);
-////				offset /=2;
-////				level++;
-////			}else {
-////				w.setAttribute("xy", level * d + Math.pow(-1, i+1) * offset, -level);
-////				offset /= 2;
-////			}
-//			w.setAttribute("label", metaData[i]);
-//		}
 //
 //		for (int i = 1, k = 0; i < metaData.length; i++) {
 //			graph.addEdge(String.valueOf(i), String.valueOf(k), String.valueOf(i), true);

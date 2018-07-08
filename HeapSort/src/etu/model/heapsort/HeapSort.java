@@ -8,7 +8,7 @@ public class HeapSort{
     private BinTree[] binArr;
 
     public HeapSort(int[] arr){
-        this.arr = arr;
+//        this.arr = arr;
 //        BinTree bt = new BinTree(arr[0]);
 //        bt.create(arr);
 //        SortProcess sp = new SortProcess(arr);
@@ -17,6 +17,7 @@ public class HeapSort{
 //        this.binArr = sp.getBinArr();
 
     }
+
 
     public int[] getSortedArray() {
         return  arr;
@@ -28,7 +29,3 @@ public class HeapSort{
 
 
 }
-
-
-
-
