@@ -1,5 +1,7 @@
 package etu.model.heapsort;
 
+import etu.model.heapsort.BinTree.BinTree;
+
 class SortProcess implements VisitorBT {
     private int[] arr;
     private BinTree[] binArr;
@@ -14,12 +16,12 @@ class SortProcess implements VisitorBT {
 
     public void visit(BinTree node){
         counter = instanceCounter++;
-        node.setLevel();
+//        node.setLevel();
         binArr[counter] = node;
-        arr[counter] = node.getKey();
+//        arr[counter] = node;
         System.out.println(counter);
         printArr(arr);
-        node.printTree();
+//        node.printTree();
         System.out.println();
     }
 

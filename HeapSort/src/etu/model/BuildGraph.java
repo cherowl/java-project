@@ -1,36 +1,89 @@
 package etu.model;
 
-import etu.model.heapsort.BinTree;
+import etu.model.heapsort.BinTree.*;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BuildGraph {
-	private final BinTree binTree;
+
+	private final NodeTree nodeTree;
 	Graph graph = new SingleGraph("G", false, true);
 
-
-	public BuildGraph (BinTree binTree) {
-		this.binTree = binTree;
+	public BuildGraph (NodeTree nodeTree) {
+		this.nodeTree = nodeTree;
 	}
 
-	public void KLP(BinTree bt, int d, int offset, int i){
+	public void KLP(NodeTree bt, int d, int offset, int k) {
+//
+//		if (bt.getLeft() != null) {
+//			KLP(bt.getLeft(), (d - offset), offset / 2, i + 1);
+//		}
+//
+//		if (bt.getRight() != null)
+//			KLP(bt.getRight(), (d + offset), offset / 2, i + 1);
+//
+//
+		int i = 0;
+		int count = 1;
+		Queue<NodeTree> queue = new LinkedList<>();
+		do {
+			Node w = graph.addNode(String.valueOf(i++));
+			w.setAttribute("xy", d, -bt.getLevel() * 2);
+			w.setAttribute("label", bt.getValue());
+			System.out.println(bt.getValue());
+			if(1 != count++) offset /= 2;
+			if (bt.getLeft() != null) {
+				Node e = graph.addNode(String.valueOf(i++));
+				e.setAttribute("xy", d - offset, -bt.getLeft().getLevel() * 2);
 
-		Node w = graph.addNode(String.valueOf(i));
-		w.setAttribute("xy", d, -bt.getLevel());
-		w.setAttribute("label", bt.getKey());
+				e.setAttribute("label", bt.getLeft().getValue());
+				queue.add(bt.getLeft());
+				System.out.println(bt.getLeft().getValue());
 
-		if (bt.getLeft() != null) {
-			KLP(bt.getLeft(), - d - offset, offset/2, i+1 );
-		}
-
-		if (bt.getRight() != null)
-			KLP(bt.getRight(), d + offset, offset/2, i+1 );
+			}
+			if (bt.getRight() != null) {
+				Node q = graph.addNode(String.valueOf(i++));
+				q.setAttribute("xy", d + offset ,  -bt.getRight().getLevel() * 2);
+//				offset /= 2;
+				q.setAttribute("label", bt.getRight().getValue());
+				queue.add(bt.getRight());
+				System.out.println( bt.getRight().getValue());
+			}
+			if (!queue.isEmpty()) bt = queue.poll();
+		} while (!queue.isEmpty());
 	}
+//
+//	public void KLP(NodeTree bt, int d, int offset) {
+//		int i = 0;
+//		int countNode = 1;
+//		while (BinTree.size(bt) != countNode++) {
+//			Node w = graph.addNode(String.valueOf(i++));
+//			d += offset;
+//			if ( countNode != 1) offset /= 2;
+//			w.setAttribute("xy", d ,  -bt.getLevel() * 2);
+//			w.setAttribute("label", bt.getValue());
+//
+//			if (bt.getLeft() != null) {
+//				Node e = graph.addNode(String.valueOf(i++));
+//				e.setAttribute("xy", d - offset, -bt.getLevel() * 2);
+//				e.setAttribute("label", bt.getValue());
+//			}
+//
+//			if (bt.getRight() != null){
+//				Node q = graph.addNode(String.valueOf(i++));
+//				q.setAttribute("xy", d + offset ,  -bt.getLevel() * 2);
+//				q.setAttribute("label", bt.getValue());
+//			}
+//
+//	}
 
 	public Graph build(){
 
-		KLP(binTree, 0, 8, 0);
+		KLP(nodeTree, 0, 8, 0);
 
 		for (Node node : graph){
 			node.addAttribute("ui.label", node.getAttributeCount());
@@ -65,7 +118,7 @@ public class BuildGraph {
 //				level++;
 //				System.out.println("level++");
 //			}
-//			Node w = graph.addNode(String.valueOf(i));
+//			NodeTree w = graph.addNode(String.valueOf(i));
 //			w.setAttribute("xy", axis_x, -level);
 //
 ////			if(i == 0) {
