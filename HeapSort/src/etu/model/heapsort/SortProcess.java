@@ -17,8 +17,8 @@ class SortProcess implements VisitorBT {
 
     public void visit(NodeTree node){
         counter = instanceCounter++;
-        arr[counter] = node.getValue();
         binArr[counter] = (new BinTree(arr)).createBinTree();
+        arr[counter] = node.getValue();
 
         System.out.println(counter);
         printArray(arr);

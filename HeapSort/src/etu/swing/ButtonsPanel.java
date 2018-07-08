@@ -39,8 +39,11 @@ public class ButtonsPanel extends JPanel {
                 HeapSort hp = new HeapSort(fileArr.getArray());
                 System.out.print("Sorted array: ");
                 hp.printArray();
+
                 System.out.print("Print KLP of binArr[0] tree: ");
                 hp.getBinArr()[0].printTree(hp.getBinArr()[0].getRoot());
+                System.out.println();
+//                hp.getBinArr()[0].displayTree(hp.getBinArr()[0].getRoot(), 1);
             }
         });
     }
