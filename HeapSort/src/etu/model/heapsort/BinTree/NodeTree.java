@@ -46,4 +46,7 @@ public class NodeTree {
     }
 
 
+	public int getParent() {
+		return parent.getValue();
+	}
 }
