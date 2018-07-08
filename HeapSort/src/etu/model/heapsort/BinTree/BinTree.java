@@ -24,10 +24,11 @@ public class BinTree {
         return current;
     }
 
-    public void createBinTree(){
+    public BinTree createBinTree(){
         for (int i = 0; i < arr.length; i++) {
             root = addRecursive(root, arr[i], null);
         }
+        return this;
     }
 
     public NodeTree getRoot() {

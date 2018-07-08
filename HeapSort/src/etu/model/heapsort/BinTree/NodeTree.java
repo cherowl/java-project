@@ -1,5 +1,7 @@
 package etu.model.heapsort.BinTree;
 
+import etu.model.heapsort.VisitorBT;
+
 public class NodeTree {
 	int value;
 	int level;
@@ -51,13 +53,13 @@ public class NodeTree {
         Если K<X, рекурсивно добавить новое дерево в левое поддерево.
         Если поддерева нет, то вставить на это место новое дерево
     */
-	public void insert(NodeTree bt){
-		if (bt.value < key)
-			if (bt.left != null) bt.left.insert(bt);
-			else bt.left = bt;
-		else if (bt.right != null) bt.right.insert(bt);
-		else bt.right = bt;
-	}
+//	public void insert(NodeTree bt){
+//		if (bt.value < value)
+//			if (bt.left != null) bt.left.insert(bt);
+//			else bt.left = bt;
+//		else if (bt.right != null) bt.right.insert(bt);
+//		else bt.right = bt;
+//	}
 	/*  visit (обход)
         Рекурсивно обойти левое поддерево.
         Применить функцию f (печать) к корневому узлу.
@@ -74,4 +76,7 @@ public class NodeTree {
 	}
 
 
+	public int getParent() {
+		return parent.getValue();
+	}
 }
