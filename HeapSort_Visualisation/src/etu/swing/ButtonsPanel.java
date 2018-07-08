@@ -4,7 +4,7 @@ import javax.swing.*;
 import javax.swing.event.AncestorListener;
 
 public class ButtonsPanel extends JPanel {
-    private final JButton StartSort = createButton("Clean", 750, 5);
+    private final JButton StartSort = createButton("Start Sort", 750, 5);
 
     private JButton createButton(String text, int x, int y) {
         JButton left = new JButton(text);

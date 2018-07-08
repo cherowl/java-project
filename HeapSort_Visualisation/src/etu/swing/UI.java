@@ -7,6 +7,8 @@ import etu.heapSort.HeapSort;
 import etu.view.View;
 
 import javax.swing.*;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -64,16 +66,12 @@ public class UI extends JFrame{
 
         Controller controller = new Controller(heapSort, view, file);
 
-        buttons.addStartSort(e -> controller.StartSort()); //ERROR HERE
+        buttons.addStartSort(new AncestorListener()){
+                @Override
+                public void ancestorAdded(AncestorEvent event) {
 
-        canvas.addKeyListener( new KeyAdapter() {
-               @Override
-               public void keyReleased(KeyEvent event) {
-
-                       controller.StartSort();
-
-               }
-           }
+                }
+            });
         );
 
         Timer timer = new Timer(50, e -> { controller.viewUpdated(); canvas.requestFocus(); });

@@ -2,7 +2,7 @@ package testFileOutput;
 
 class HeapSort {
     private int[] arr;
-
+    private int[][] steps;
 
     HeapSort(int[] arr) {
         this.arr = arr;

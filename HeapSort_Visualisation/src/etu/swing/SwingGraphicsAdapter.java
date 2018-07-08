@@ -18,7 +18,7 @@ public class SwingGraphicsAdapter implements Graphics {
     @SuppressWarnings("SuspiciousNameCombination")
     public void drawRect(int x, int y, int width, int height, int data) {
         graphics.setColor(Color.MAGENTA);
-        graphics.drawString(Integer.valueOf(data).toString(), x, y);
+        graphics.drawString(String.valueOf(data),, x, y);
         graphics.fillRect(y, x, width, height);
     }
 
