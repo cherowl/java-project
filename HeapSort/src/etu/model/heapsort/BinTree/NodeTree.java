@@ -75,8 +75,8 @@ public class NodeTree {
 			right.traverse(visitor);
 	}
 
-
 	public int getParent() {
 		return parent.getValue();
 	}
 }
+
