@@ -13,7 +13,7 @@ public class HeapSort{
         bt.createBinTree();
         SortProcess sp = new SortProcess(arr);
         bt.getRoot().traverse(sp);
-        this.binArr = sp.getBinArr();
+//        this.binArr = sp.getBinArr();
     }
 
 
