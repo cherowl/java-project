@@ -7,6 +7,7 @@ import org.graphstream.graph.implementations.SingleGraph;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 public class BuildGraph {
 
@@ -18,17 +19,64 @@ public class BuildGraph {
 	    this.nodeTree = nodeTree;
 	}
 
+//	public void createNodes(NodeTree b, int d, int offset, int k) {
+//		if (b == null) {
+//            return;
+//        }
+//        System.out.print("The value of the root is: "); b.print();
+////        int i = 0;
+//		int count = 1;
+//		Queue<NodeTree> queue = new LinkedList<>();
+//		queue.add(b);
+//		do {
+//			NodeTree bt = queue.remove();
+//			if( count == 1){
+//				Node w = graph.addNode(String.valueOf(i++));
+//				w.setAttribute("xy", d, -bt.getLevel() * 4);
+//				w.setAttribute("label", bt.getValue());
+//				System.out.print("root: " + bt.getValue()+" lev: "+bt.getLevel());
+//				bt.setLevel();
+//				System.out.println();
+//
+//			}
+//			if(1 != count++) offset /= 2;
+//			if (bt.getLeft() != null) {
+//				Node e = graph.addNode(String.valueOf(i++));
+//				e.setAttribute("xy", d - offset, -bt.getLeft().getLevel() * 4);
+//
+//				e.setAttribute("label", bt.getLeft().getValue());
+//				System.out.print("left: "+bt.getLeft().getValue()+" lev: "+bt.getLeft().getLevel());
+//				bt.getLeft().setLevel();
+//				System.out.println();
+//
+//				queue.add(bt.getLeft());
+//
+//			}
+//			if (bt.getRight() != null) {
+//				Node q = graph.addNode(String.valueOf(i++));
+//				q.setAttribute("xy", d + offset ,  -bt.getRight().getLevel() * 4);
+//				q.setAttribute("label", bt.getRight().getValue());
+//				System.out.print( "right: "+bt.getRight().getValue()+" lev: "+bt.getRight().getLevel());
+//				bt.getRight().setLevel();
+//				System.out.println();
+//
+//				queue.add(bt.getRight());
+//			}
+//		} while (!queue.isEmpty());
+//	}
+
+
 	public void createNodes(NodeTree b, int d, int offset, int k) {
 		if (b == null) {
-            return;
-        }
-        System.out.print("The value of the root is: "); b.print();
+			return;
+		}
+		System.out.print("The value of the root is: "); b.print();
 //        int i = 0;
 		int count = 1;
-		Queue<NodeTree> queue = new LinkedList<>();
-		queue.add(b);
+		Stack<NodeTree> stack = new Stack<>();
+		stack.push(b);
 		do {
-			NodeTree bt = queue.remove();
+			NodeTree bt = stack.pop();
 			if( count == 1){
 				Node w = graph.addNode(String.valueOf(i++));
 				w.setAttribute("xy", d, -bt.getLevel() * 4);
@@ -48,7 +96,7 @@ public class BuildGraph {
 				bt.getLeft().setLevel();
 				System.out.println();
 
-				queue.add(bt.getLeft());
+				stack.push(bt.getLeft());
 
 			}
 			if (bt.getRight() != null) {
@@ -59,9 +107,9 @@ public class BuildGraph {
 				bt.getRight().setLevel();
 				System.out.println();
 
-				queue.add(bt.getRight());
+				stack.push(bt.getRight());
 			}
-		} while (!queue.isEmpty());
+		} while (!stack.isEmpty());
 	}
 
 	public void createEdges(NodeTree b) {
