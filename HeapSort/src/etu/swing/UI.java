@@ -53,38 +53,6 @@ public class UI extends JFrame {
         HeapSort heapSort = new HeapSort(fileArr.getArray());
         heapSort.getSortedArray();
 
-//        String path = "./resource/outGraph.dat";
-//        FileSource metaData = FileSourceFactory.sourceFor(path);
-
-//        Graph graph = new SingleGraph("G", false, true);
-//
-//
-//        metaData.addSink(graph);
-//        try {
-//            metaData.readAll(path);
-//        } catch( IOException ignored) {
-//        } finally {
-//            metaData.removeSink(graph);
-//        }
-//
-//        for (Node node : graph){
-//            node.addAttribute("ui.label", node.getAttributeCount());
-//        }
-//
-//        graph.addAttribute("ui.stylesheet",
-//                "graph{fill-color: gray;} " +
-//                        "node{ " +
-//                        "shape: circle;  " +
-//                        "size: 30px, 30px; " +
-//                        "fill-color: white;" +
-//                        "stroke-mode: plain;" +
-//                        "text-mode: normal;" +
-//                        "text-mode: normal; " +
-//                        "text-style: bold; " +
-//                        "text-size: 20; " +
-//                        "text-alignment: center;" +
-//                        "size-mode: dyn-size;}");
-
         BuildGraph graphB = new BuildGraph(heapSort.getBinArr()[3]);
         Graph graph = graphB.build();
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);

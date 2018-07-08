@@ -1,35 +1,28 @@
 package etu.controller;
 
-public class Controller {
-//    private final HeapSort heapSort;
-//    private final FileReadArray readFile;
-//    private final View view;
-//
-//    public Controller(HeapSort heapSort, View view, FileReadArray readFile) {
-//        this.heapSort = heapSort;
-//        this.view = view;
-//        this.readFile = readFile;
-//    }
+import etu.model.FileReadArray;
+import etu.model.heapsort.HeapSort;
+import etu.view.View;
 
-    /**
-    private void viewUpdated(){ // это Димы
-        if (this.view.isAlive()) this.view = null;
-        this.view = new View();
-        this.view.setGraphics(new SwingGraphicsAdapter(ProjectLauncher.getCanvas().getGraphics()));
-        this.view.start();
+public class Controller {
+    private final HeapSort heapSort;
+    private final FileReadArray readFile;
+    private final View view;
+
+    public Controller(HeapSort heapSort, View view, FileReadArray readFile) {
+        this.heapSort = heapSort;
+        this.view = view;
+        this.readFile = readFile;
     }
-    */
-    
-//    public void viewUpdated(){ // это наше
+
+//    public void viewUpdated(){
 //        view.draw(heapSort);
 //    }
-//
-//    public void startSort(){
+
+    public void StartSort(){
 //        heapSort.sort(readFile.getArray());
-//        viewUpdated();
-//    }
-//
-//    public void nextStep(){
-//        this.view.nextStep();
-//    }
+//        view.draw(heapSort);
+        System.out.println("testttttt");
+    }
+
 }
