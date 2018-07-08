@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class FileReadArray {
     private final int[] arr;
 
-    private FileReadArray(int[] arr) {
+    public FileReadArray(int[] arr) {
         this.arr = arr;
     }
 

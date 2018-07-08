@@ -1,7 +1,7 @@
 package etu.controller;
 
 import etu.model.FileReadArray;
-import etu.model.heapsort.HeapSort;
+import etu.model.heapSort.HeapSort;
 import etu.view.View;
 
 public class Controller {
@@ -22,6 +22,6 @@ public class Controller {
     public void StartSort(){
 //        heapSort.sort(readFile.getArray());
 //        view.draw(heapSort);
-        System.out.println("testttttt");
+//        view.showThanksDialog();
     }
 }

@@ -1,19 +1,34 @@
 package etu.view;
 
-public class View {
-//    private final static int CIRCLE_SIZE = 30;
-//    private final static int LEVEL_SIZE = 20;
+import javax.swing.*;
+
+public class View extends Thread{
+    private final static int CIRCLE_SIZE = 30;
+    private final static int LEVEL_SIZE = 20;
 //
+private final JFrame mainFrame;
+    private Graphics graphics;
+
+    public View(JFrame mainFrame) {
+        this.mainFrame = mainFrame;
+    }
+
+//    public void showThanksDialog() {
+//        graphics.showThanks();
+//    }
+    public void showCongratsDialog() {
+        JOptionPane.showConfirmDialog(mainFrame, "You are winner!", "Congratulations", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+    }
 //    private Graphics graphics;
 //
-//    public void draw(HeapSort heapSort){
+//    public void draw(heapSort heapSort){
 //        drawSortedArray(heapSort);
 //        drawGraphArray(heapSort);
 //    }
 //
-//    private void drawSortedArray(HeapSort heapSort){  //draw of sorted array
-//        int lenght = heapSort.getSortArr().length;
-//        int[] arr =  heapSort.getSortArr();
+//    private void drawSortedArray(heapSort heapSort){  //draw of sorted array
+//        int lenght = heapSort.getSortedArray().length;
+//        int[] arr =  heapSort.getSortedArray();
 //        for (int i = 0; i < lenght; i++) {
 //            graphics.drawRect(300, 60 + i*30, 30, 30, arr[i]);
 //        }
@@ -23,11 +38,19 @@ public class View {
 //        graphics.showThanks();
 //    }
 //
-//    private void drawGraphArray(HeapSort heapSort){ //draw tree
+//    private void drawGraphArray(heapSort heapSort){ //draw tree
 //        // TODO
 //    }
 //
 //    public void setGraphics(Graphics graphics) {
 //        this.graphics = graphics;
+//    }
+//
+//    public Graphics getGraphics() {
+//        return graphics;
+//    }
+//
+//    public void nextStep() {
+//        notifyAll();
 //    }
 }
