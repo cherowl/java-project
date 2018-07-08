@@ -76,55 +76,54 @@ public class BuildGraph {
 		Stack<NodeTree> stack = new Stack<>();
 		stack.push(b);
 		do {
-			NodeTree bt = stack.pop();
-			if( count == 1){
+		    int newd = 0;
+			NodeTree bt = queue.remove();
+			if( 1 == count){
 				Node w = graph.addNode(String.valueOf(i++));
 				w.setAttribute("xy", d, -bt.getLevel() * 4);
 				w.setAttribute("label", bt.getValue());
-				System.out.print("root: " + bt.getValue()+" lev: "+bt.getLevel());
-				bt.setLevel();
+				System.out.print("root: " + bt.getValue()+" lev: "+bt.getLevel() + " p: 0");
+                System.out.print(" d: "+d+" o: "+offset);
 				System.out.println();
+//                offset = newd;
 
 			}
-			if(1 != count++) offset /= 2;
+			if(1 != count) offset /= 2;
 			if (bt.getLeft() != null) {
 				Node e = graph.addNode(String.valueOf(i++));
 				e.setAttribute("xy", d - offset, -bt.getLeft().getLevel() * 4);
 
 				e.setAttribute("label", bt.getLeft().getValue());
-				System.out.print("left: "+bt.getLeft().getValue()+" lev: "+bt.getLeft().getLevel());
-				bt.getLeft().setLevel();
+				System.out.print("left: "+bt.getLeft().getValue()+" lev: "+bt.getLeft().getLevel()+ " p: "+bt.getLeft().getParent());
+                newd = d - offset;
+				System.out.print(" d: "+newd+" o: "+offset);
+
 				System.out.println();
 
-				stack.push(bt.getLeft());
+                offset = newd;
+				queue.add(bt.getLeft());
 
 			}
 			if (bt.getRight() != null) {
 				Node q = graph.addNode(String.valueOf(i++));
 				q.setAttribute("xy", d + offset ,  -bt.getRight().getLevel() * 4);
 				q.setAttribute("label", bt.getRight().getValue());
-				System.out.print( "right: "+bt.getRight().getValue()+" lev: "+bt.getRight().getLevel());
-				bt.getRight().setLevel();
-				System.out.println();
+				System.out.print( "right: "+bt.getRight().getValue()+" lev: "+bt.getRight().getLevel()+ " p: "+bt.getRight().getParent());
+                newd = d + offset;
+				System.out.print(" d: "+newd+" o: "+offset);
 
-				stack.push(bt.getRight());
-			}
-		} while (!stack.isEmpty());
-	}
+                System.out.println();
 
-	public void createEdges(NodeTree b) {
-		for (int j = 1, k = 0; j < i; j++) {
-			graph.addEdge(String.valueOf(j), String.valueOf(k), String.valueOf(j), true);
-			if (j % 2 == 0) {
-				k++;
+                offset = newd;
+                queue.add(bt.getRight());
 			}
-		}
+            count++;
+		} while (!queue.isEmpty());
 	}
 
 	public Graph build(){
 
-		createNodes(nodeTree, 0, 8, 0);
-		createEdges(nodeTree);
+		createNodes(nodeTree, 0, 10, 0);
 
 		for (Node node : graph){
 			node.addAttribute("ui.label", node.getAttributeCount());
