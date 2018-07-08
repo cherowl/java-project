@@ -42,6 +42,7 @@ public class BinTree {
             return size(node.left) + 1 + size(node.right);
     }
 
+
     public void printTree(NodeTree root){
         if(root != null){
             System.out.print(root.value + " (" + root.level + ") ");
