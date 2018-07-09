@@ -1,11 +1,10 @@
 package etu.swing;
 
-import etu.model.FileReadArray;
+import etu.controller.Controller;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
 
 public class ReadDataPanel extends JPanel {
 
@@ -33,7 +32,7 @@ public class ReadDataPanel extends JPanel {
         return textField;
     }
 
-    public ReadDataPanel() {
+    public ReadDataPanel(Controller controller) {
         add(openFile);
         add(enter);
         add(textField);
@@ -41,10 +40,7 @@ public class ReadDataPanel extends JPanel {
         openFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser();
-                int returnVal = fileChooser.showDialog(null, "Открыть файл");
-                FileReadArray file = FileReadArray.init( new Scanner(String.valueOf(fileChooser.getSelectedFile()))); //как-нибудь привести
-
+                controller.openFile();
             }
         });
     }

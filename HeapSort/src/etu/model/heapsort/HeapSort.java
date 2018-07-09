@@ -1,7 +1,6 @@
 package etu.model.heapsort;
 
 import etu.model.heapsort.BinTree.BinTree;
-import etu.model.heapsort.SortProcess;
 
 public class HeapSort{
     private int arr[];
@@ -9,8 +8,8 @@ public class HeapSort{
 
     public HeapSort(int[] arr){
         this.arr = arr;
-        System.out.print("Unsorted array: ");
-        printArray();
+//        System.out.print("Unsorted array: ");
+//        printArray();
         BinTree bt = new BinTree(arr);
         bt.createBinTree();
         SortProcess sp = new SortProcess(arr);
@@ -28,7 +27,7 @@ public class HeapSort{
 
     public void printArray(){
         for (Integer i : arr){
-            System.out.print(" "+i.intValue());
+            System.out.print(" " + i.intValue());
         }
         System.out.println();
     }

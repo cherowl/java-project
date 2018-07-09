@@ -25,13 +25,10 @@ public class ButtonsPanel extends JPanel {
         return left;
     }
 
-
     public ButtonsPanel(Controller controller) {
         add(prev);
         add(start);
         add(next);
-
-//        Controller controller = new Controller();
 
         start.addActionListener(new ActionListener() {
             @Override
