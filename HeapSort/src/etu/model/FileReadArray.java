@@ -25,15 +25,14 @@ public class FileReadArray {
         return arr;
     }
 
-    public static FileReadArray restore(ArrayList<Integer> buffer){
-        return FileReadArray.restore(buffer); //new FileReadArray(/*Tree.restore(buffer)*//*тут передается инфа на рисовку дерева, я так понимаю*/);
+    public void printArray(){
+        for (Integer i : arr){
+            System.out.print(" "+i.intValue());
+        }
+        System.out.println();
     }
 
-    public FileReadArray reedFromTextField(String text){
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        for (String i : text.split(" ")){
-            list.add(Integer.parseInt(i));
-        }
-        return restore(list);
+    public static FileReadArray restore(ArrayList<Integer> buffer){
+        return FileReadArray.restore(buffer); //new FileReadArray(/*Tree.restore(buffer)*//*тут передается инфа на рисовку дерева, я так понимаю*/);
     }
 }
