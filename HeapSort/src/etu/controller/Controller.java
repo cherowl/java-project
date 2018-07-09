@@ -1,12 +1,7 @@
 package etu.controller;
 
 import etu.model.FileReadArray;
-import etu.model.heapsort.HeapSort;
 import etu.swing.UI;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class Controller {
 //    private final HeapSort heapSort;
@@ -20,34 +15,31 @@ public class Controller {
     }
 
     private void checkTextField(){ //понадобится для старта
+        System.out.println("text");
         if (UI.getUpPanel().getTextField().getText().length() != 0){
             this.readFile = readFile.reedFromTextField(UI.getUpPanel().getTextField().getText());
         }
     }
 
     public void startSort(){
+//        System.out.println("text");
         checkTextField();
 //        Model.clearListOfTrees();
 //        ProjectLauncher.getProgressBar().clear();
-        readFile.startSort();
+//        readFile.startSort();
 //        viewUpdated();
     }
 
     public void nextStep(){
+        System.out.println("i'm next");
+
 //        notifyAll();
-        Scanner in = null;
-        try {
-            in = new Scanner(new File("resource/input.dat"));
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        }
-        FileReadArray fileArr = FileReadArray.init(in);
-        HeapSort hp = new HeapSort(fileArr.getArray());
 //        BuildGraph gr = new BuildGraph(hp.getBinArr());
 //        gr.build();
     }
 
     public void previousStep(){
+        System.out.println("i'm previous");
         //реализовать
 //        if (currentSlide - 1 >= 0){
 //            currentSlide -= 2;

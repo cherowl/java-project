@@ -36,10 +36,4 @@ public class FileReadArray {
         }
         return restore(list);
     }
-
-    public void startSort(){
-        //наша функция сортировки
-//        heapSort = new HeapSortMin(new Tree(tree));
-//        heapSort.run();
-    }
 }

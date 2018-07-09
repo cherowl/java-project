@@ -56,11 +56,11 @@ public class UI extends JFrame {
         FileReadArray fileArr = FileReadArray.init(in);
         
         HeapSort hp = new HeapSort(fileArr.getArray());
-        System.out.print("Sorted array: ");
-        hp.printArray();
-        System.out.print("Print KLP of binArr[0] tree: ");
-        hp.getBinArr()[0].printTree(hp.getBinArr()[0].getRoot());
-        System.out.println();
+//        System.out.print("Sorted array: ");
+//        hp.printArray();
+//        System.out.print("Print KLP of binArr[0] tree: ");
+//        hp.getBinArr()[0].printTree(hp.getBinArr()[0].getRoot());
+//        System.out.println();
 
         BuildGraph graphB = new BuildGraph(hp.getBinArr()[0].getRoot());
         Graph graph = graphB.build();
@@ -102,6 +102,7 @@ public class UI extends JFrame {
             e.printStackTrace();
         }
         FileReadArray fileArr = FileReadArray.init(in);
+        HeapSort hp = new HeapSort(fileArr.getArray());
         Controller controller = new Controller(fileArr);
 
         buttonsPanel.addStartSortButtonListener(e -> controller.startSort());

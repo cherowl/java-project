@@ -22,7 +22,6 @@ public class ButtonsPanel extends JPanel {
         return left;
     }
 
-
     public ButtonsPanel() {
         add(previous);
         add(startSort);

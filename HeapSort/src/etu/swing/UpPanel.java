@@ -1,7 +1,6 @@
 package etu.swing;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -39,9 +38,13 @@ public class UpPanel extends JPanel {
         fileOpen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                System.out.print("i'm open");
                 JFileChooser fileChooser = new JFileChooser();
-                int returnVal = fileChooser.showDialog(null, "Открыть файл");
-//                Scanner file = new Scanner(fileChooser); //как-нибудь привести
+                int file1 = fileChooser.showDialog(null, "Выберите файл");
+//                File choice = ;
+//                Scanner choice = new Scanner(fileChooser.getName()); //как-нибудь привести
+//                FileReadArray fileReadArray = FileReadArray.init(choice);
+//                System.out.print(fileReadArray);
             }
         });
     }
