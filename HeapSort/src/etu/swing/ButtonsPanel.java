@@ -9,7 +9,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ButtonsPanel extends JPanel {
+
     private final JButton StartSort = createButton("Sort", 40, 10);
+    private final JButton NextStep = createButton("Next Step", 40, 60);
+
 
     private JButton createButton(String text, int x, int y) {
         JButton left = new JButton(text);
@@ -32,6 +35,12 @@ public class ButtonsPanel extends JPanel {
                 } catch (FileNotFoundException e1) {
                     e1.printStackTrace();
                 }
+            }
+        });
+        add(NextStep);
+        NextStep.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
 
             }
         });

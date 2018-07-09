@@ -1,5 +1,6 @@
 package etu.swing;
 
+import etu.controller.Controller;
 import etu.model.BuildGraph;
 import etu.model.FileReadArray;
 import etu.model.heapsort.BinTree.BinTree;
@@ -49,27 +50,23 @@ public class UI extends JFrame {
         rightPanel.add(buttons);
         rightPanel.add(Box.createRigidArea(new Dimension(110, 20)));
 
+
+
         Scanner in = new Scanner(new File("resource/input.dat"));
         FileReadArray fileArr = FileReadArray.init(in);
-
         HeapSort hp = new HeapSort(fileArr.getArray());
-        System.out.print("Sorted array: ");
-        hp.printArray();
+        Controller controller = new Controller(fileArr, hp,)
 
-        System.out.print("Print KLP of binArr[0] tree: ");
-        hp.getBinArr()[0].printTree(hp.getBinArr()[0].getRoot());
-        System.out.println();
-//      hp.getBinArr()[0].displayTree(hp.getBinArr()[0].getRoot(), 1);
-
-
-        BinTree binaryTree = new BinTree(fileArr.getArray());
-        binaryTree.createBinTree();
-//        binaryTree.printTree(binaryTree.getRoot());
-        System.out.println();
-
+//            System.out.print("Sorted array: ");
+//            hp.printArray();
+//
+//            hp.getBinArr()[0].printTree(hp.getBinArr()[0].getRoot());
+//    //      hp.getBinArr()[0].displayTree(hp.getBinArr()[0].getRoot(), 1);
 
         BuildGraph graphB = new BuildGraph(hp.getBinArr()[0].getRoot());
+//
         Graph graph = graphB.build();
+
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
         viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
         View view = viewer.addDefaultView(false);
