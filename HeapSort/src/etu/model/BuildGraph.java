@@ -1,6 +1,7 @@
 package etu.model;
 
-import etu.model.heapsort.BinTree.*;
+import etu.model.heapsort.BinTree.NodeTree;
+import etu.model.heapsort.BinTree.BinTree;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;

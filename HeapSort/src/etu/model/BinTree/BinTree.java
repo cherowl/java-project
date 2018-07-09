@@ -1,5 +1,7 @@
 package etu.model.heapsort.BinTree;
 
+import etu.model.heapsort.BinTree.NodeTree;
+
 public class BinTree {
     NodeTree root;
     public int[] arr;
@@ -20,7 +22,6 @@ public class BinTree {
             // value already exists
             return current;
         }
-
         return current;
     }
 

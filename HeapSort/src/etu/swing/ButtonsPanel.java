@@ -2,19 +2,18 @@ package etu.swing;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class ButtonsPanel extends JPanel {
-
-    private final JButton StartSort = createButton("Sort", 40, 10);
-    private final JButton NextStep = createButton("Next Step", 40, 60);
-
+    private final JButton startSort = createButton("Start sort", 40, 40);
+    private final JButton next = createButton("Next step", 40, 40);
+    private final JButton previous = createButton("Previous step", 40, 40);
 
     private JButton createButton(String text, int x, int y) {
+        return getjButton(text, x, y);
+    }
+
+    static JButton getjButton(String text, int x, int y) {
         JButton left = new JButton(text);
         left.setBounds(x, y, 100, 40); //size of buttons
         left.setFocusPainted(false);
@@ -23,31 +22,23 @@ public class ButtonsPanel extends JPanel {
         return left;
     }
 
-    public ButtonsPanel() {
-        super(null);
-        add(StartSort);
-        StartSort.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Scanner in = null;
-                try {
-                    in = new Scanner(new File("resource/input.dat"));
-                } catch (FileNotFoundException e1) {
-                    e1.printStackTrace();
-                }
-            }
-        });
-        add(NextStep);
-        NextStep.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-            }
-        });
+    public ButtonsPanel() {
+        add(previous);
+        add(startSort);
+        add(next);
     }
 
+    void addStartSortButtonListener(ActionListener listener){
+        startSort.addActionListener(listener);
+    }
 
-//    public void addStartSort(AncestorListener listener) {
-//        StartSort.addAncestorListener(listener);
-//    }
+    void addNextStepButtonListener(ActionListener listener){
+        next.addActionListener(listener);
+    }
+
+    void addPreviousStepButtonListener(ActionListener listener) {
+        previous.addActionListener(listener);
+    }
+
 }

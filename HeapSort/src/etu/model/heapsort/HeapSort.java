@@ -1,7 +1,7 @@
 package etu.model.heapsort;
 
-
 import etu.model.heapsort.BinTree.BinTree;
+import etu.model.heapsort.SortProcess;
 
 public class HeapSort{
     private int arr[];
@@ -18,7 +18,6 @@ public class HeapSort{
         this.binArr = sp.getBinArr();
     }
 
-
     public int[] getArray() {
         return  arr;
     }
@@ -33,5 +32,4 @@ public class HeapSort{
         }
         System.out.println();
     }
-
 }
