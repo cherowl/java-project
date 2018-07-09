@@ -1,7 +1,6 @@
 package etu.model.heapsort;
 
 import etu.model.heapsort.BinTree.BinTree;
-import etu.model.heapsort.SortProcess;
 
 public class HeapSort{
     private int arr[];

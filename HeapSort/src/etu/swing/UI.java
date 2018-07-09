@@ -1,12 +1,7 @@
 package etu.swing;
 
 import etu.controller.Controller;
-import etu.model.BuildGraph;
 import etu.model.FileReadArray;
-import org.graphstream.graph.Graph;
-import org.graphstream.ui.swingViewer.ViewPanel;
-import org.graphstream.ui.view.View;
-import org.graphstream.ui.view.Viewer;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -34,7 +29,7 @@ public class UI extends JFrame {
 
     private UI() throws HeadlessException, IOException {
         setPreferredSize(new Dimension(1000, 700));
-        setResizable(false);
+        setResizable(true);
 
         Scanner in = new Scanner(new File("resource/input.dat"));
         try {
@@ -46,7 +41,7 @@ public class UI extends JFrame {
         Controller controller = new Controller(fileArr);
 
         ButtonsPanel buttonPanel = new ButtonsPanel(controller);
-        ReadDataPanel dataPanel = new ReadDataPanel();
+        ReadDataPanel dataPanel = new ReadDataPanel(controller);
         rightPanel = new JPanel();
         rightPanel.setPreferredSize(new Dimension(150, 400));
         rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
@@ -57,31 +52,17 @@ public class UI extends JFrame {
         rightPanel.add(buttonPanel);
         rightPanel.add(Box.createRigidArea(new Dimension(110, 20)));
 
-// Тут надо переносить это в контроллер -->>
-        BuildGraph graphB = new BuildGraph(hp.getBinArr()[0].getRoot());
-        Graph graph = graphB.build();
-        Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
-        viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
-        View view = viewer.addDefaultView(false);
-        view.getCamera().resetView();
-        view.getCamera().setViewPercent(2.5); //This will zoom of 200% on the view center.
-
-
-        ((ViewPanel) view).setPreferredSize(new Dimension(525, 630));
         graphPanel = new JPanel();
-        graphPanel.add((JPanel) view);
-        graphPanel.setPreferredSize(new Dimension(300, 180));
+        graphPanel.setPreferredSize(new Dimension(400, 180));
         graphPanel.setBorder(new TitledBorder("Graph"));
+        controller.setGraphPanel(graphPanel);
 
         JPanel rootPanel = new JPanel();
         rootPanel.setPreferredSize(new Dimension(10, 200)); // size of MainWindow
-        rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.X_AXIS)); //WARNINNNGGGGGGG!
-        rootPanel.add(Box.createRigidArea(new Dimension(10, 400)));
+        rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.X_AXIS));
 
         rootPanel.add(graphPanel);
-//        rootPanel.add(Box.createRigidArea(new Dimension(10, 700)));
         rootPanel.add(rightPanel);
-//        rootPanel.add(Box.createRigidArea(new Dimension(10, 700)));
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //close app when close main window
         setContentPane(rootPanel);

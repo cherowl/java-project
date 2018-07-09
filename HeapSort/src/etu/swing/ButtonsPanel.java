@@ -31,8 +31,6 @@ public class ButtonsPanel extends JPanel {
         add(start);
         add(next);
 
-//        Controller controller = new Controller();
-
         start.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
