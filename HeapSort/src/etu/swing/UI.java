@@ -3,6 +3,7 @@ package etu.swing;
 import etu.model.BuildGraph;
 import etu.model.FileReadArray;
 import etu.model.heapsort.BinTree.BinTree;
+import etu.model.heapsort.HeapSort;
 import org.graphstream.graph.Graph;
 import org.graphstream.ui.swingViewer.ViewPanel;
 import org.graphstream.ui.view.View;
@@ -51,17 +52,29 @@ public class UI extends JFrame {
         Scanner in = new Scanner(new File("resource/input.dat"));
         FileReadArray fileArr = FileReadArray.init(in);
 
+        HeapSort hp = new HeapSort(fileArr.getArray());
+        System.out.print("Sorted array: ");
+        hp.printArray();
+
+        System.out.print("Print KLP of binArr[0] tree: ");
+        hp.getBinArr()[0].printTree(hp.getBinArr()[0].getRoot());
+        System.out.println();
+//      hp.getBinArr()[0].displayTree(hp.getBinArr()[0].getRoot(), 1);
+
+
         BinTree binaryTree = new BinTree(fileArr.getArray());
         binaryTree.createBinTree();
-        binaryTree.printTree(binaryTree.getRoot());
+//        binaryTree.printTree(binaryTree.getRoot());
+        System.out.println();
 
-        BuildGraph graphB = new BuildGraph(binaryTree.getRoot());
+
+        BuildGraph graphB = new BuildGraph(hp.getBinArr()[0].getRoot());
         Graph graph = graphB.build();
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
         viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
         View view = viewer.addDefaultView(false);
-        view.getCamera().resetView();
-        view.getCamera().setViewPercent(2.5); //This will zoom of 200% on the view center.
+//        view.getCamera().resetView();
+//        view.getCamera().setViewPercent(0.9); //This will zoom of 200% on the view center.
         ((ViewPanel) view).setPreferredSize( new Dimension(750, 630));
 
         JPanel graphPanel = new JPanel();
