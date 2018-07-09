@@ -47,24 +47,6 @@ public class NodeTree {
         System.out.println(value);
     }
 
-	/*  insert (добавление нового поддерева (ключа))
-        сравнить ключ добавляемого поддерева (К) с ключом корневого узла (X).
-        Если K>=X, рекурсивно добавить новое дерево в правое поддерево.
-        Если K<X, рекурсивно добавить новое дерево в левое поддерево.
-        Если поддерева нет, то вставить на это место новое дерево
-    */
-//	public void insert(NodeTree bt){
-//		if (bt.value < value)
-//			if (bt.left != null) bt.left.insert(bt);
-//			else bt.left = bt;
-//		else if (bt.right != null) bt.right.insert(bt);
-//		else bt.right = bt;
-//	}
-	/*  visit (обход)
-        Рекурсивно обойти левое поддерево.
-        Применить функцию f (печать) к корневому узлу.
-        Рекурсивно обойти правое поддерево.
-    */
 	public void traverse(VisitorBT visitor){
 		if (left != null)
 			left.traverse(visitor);
@@ -75,8 +57,8 @@ public class NodeTree {
 			right.traverse(visitor);
 	}
 
-
 	public int getParent() {
 		return parent.getValue();
 	}
 }
+

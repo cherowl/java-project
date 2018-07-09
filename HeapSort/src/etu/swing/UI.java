@@ -3,7 +3,7 @@ package etu.swing;
 import etu.controller.Controller;
 import etu.model.BuildGraph;
 import etu.model.FileReadArray;
-import etu.model.heapsort.BinTree.BinTree;
+import etu.model.heapsort.HeapSort;
 import org.graphstream.graph.Graph;
 import org.graphstream.ui.swingViewer.ViewPanel;
 import org.graphstream.ui.view.View;
@@ -54,12 +54,15 @@ public class UI extends JFrame {
 //----------------------------------------------------рисование дерева------------------------------------------
         Scanner in = new Scanner(new File("resource/input.dat"));
         FileReadArray fileArr = FileReadArray.init(in);
+        
+        HeapSort hp = new HeapSort(fileArr.getArray());
+        System.out.print("Sorted array: ");
+        hp.printArray();
+        System.out.print("Print KLP of binArr[0] tree: ");
+        hp.getBinArr()[0].printTree(hp.getBinArr()[0].getRoot());
+        System.out.println();
 
-        BinTree binaryTree = new BinTree(fileArr.getArray());
-        binaryTree.createBinTree();
-        binaryTree.printTree(binaryTree.getRoot());
-
-        BuildGraph graphB = new BuildGraph(binaryTree.getRoot());
+        BuildGraph graphB = new BuildGraph(hp.getBinArr()[0].getRoot());
         Graph graph = graphB.build();
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
         viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close

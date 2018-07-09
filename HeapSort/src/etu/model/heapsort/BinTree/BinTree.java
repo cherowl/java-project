@@ -41,12 +41,18 @@ public class BinTree {
             return size(node.left) + 1 + size(node.right);
     }
 
+
     public void printTree(NodeTree root){
         if(root != null){
             System.out.print(root.value + " (" + root.level + ") ");
             if (root.left!=null) printTree(root.left);
             if (root.right!=null) printTree(root.right);
         }
+    }
+
+    public static int maxDepth(NodeTree root) {
+        if(root==null) return 0;
+        return Math.max(maxDepth(root.left), maxDepth(root.right))+1;
     }
 
 //    public void displayTree(NodeTree root, int n)

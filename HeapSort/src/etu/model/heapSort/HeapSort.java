@@ -8,6 +8,8 @@ public class HeapSort{
 
     public HeapSort(int[] arr){
         this.arr = arr;
+        System.out.print("Unsorted array: ");
+        printArray();
         BinTree bt = new BinTree(arr);
         bt.createBinTree();
         SortProcess sp = new SortProcess(arr);
@@ -30,7 +32,3 @@ public class HeapSort{
         System.out.println();
     }
 }
-
-
-
-
