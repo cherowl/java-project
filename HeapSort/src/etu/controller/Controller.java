@@ -1,65 +1,52 @@
 package etu.controller;
 
 import etu.model.FileReadArray;
+import etu.model.heapsort.BinTree.BinTree;
 import etu.model.heapsort.HeapSort;
-import etu.swing.UI;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class Controller {
-//    private final HeapSort heapSort;
-    private FileReadArray readFile;
-//    private final View view;
+    private final FileReadArray readFile;
 
-    public Controller(/*HeapSort heapSort, View view, */FileReadArray readFile) {
-//        this.heapSort = heapSort;
-//        this.view = view;
+    private HeapSort heapSort = null;
+    private BinTree binTree;
+    private int count = 0;
+
+    public Controller(FileReadArray readFile) {
         this.readFile = readFile;
     }
 
-    private void checkTextField(){ //понадобится для старта
-        if (UI.getUpPanel().getTextField().getText().length() != 0){
-            this.readFile = readFile.reedFromTextField(UI.getUpPanel().getTextField().getText());
-        }
+    public void StartSort(){
+        heapSort = new HeapSort(readFile.getArray());
+        System.out.print("Sorted array: ");
+        binTree = heapSort.getBinArr()[0];
+        System.out.println("testttttt");
     }
 
-    public void startSort(){
-        checkTextField();
-//        Model.clearListOfTrees();
-//        ProjectLauncher.getProgressBar().clear();
-        readFile.startSort();
-//        viewUpdated();
-    }
 
     public void nextStep(){
-//        notifyAll();
-        Scanner in = null;
-        try {
-            in = new Scanner(new File("resource/input.dat"));
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        }
-        FileReadArray fileArr = FileReadArray.init(in);
-        HeapSort hp = new HeapSort(fileArr.getArray());
-//        BuildGraph gr = new BuildGraph(hp.getBinArr());
-//        gr.build();
-    }
-
-    public void previousStep(){
-        //реализовать
-//        if (currentSlide - 1 >= 0){
-//            currentSlide -= 2;
-//            UI.getProgressBar().setCurrentSlide(currentSlide + 1);
-//            notifyAll();
+        if(heapSort == null)
+            System.out.println("Can you push Start Sort");
+        else {
+            if (count < heapSort.getBinArr().length)
+                count += 1;
+            binTree = heapSort.getBinArr()[count];
         }
     }
 
-//    public void viewUpdated(){
-//        if (this.view.isAlive()) this.view = null;
-//        this.view = new View();
-//        this.view.setGraphics(new SwingGraphicsAdapter(ProjectLauncher.getCanvas().getGraphics()));
-//        this.view.start();
-//    }
-//}
+    public void prevStep(){
+        if(heapSort == null)
+            System.out.println("Can you push Start Sort");
+        else {
+            if (count > 0)
+                count -= 1;
+            binTree = heapSort.getBinArr()[count];
+        }
+    }
+
+    public BinTree getBinTree() {
+        if( binTree == null){
+            System.out.println("NULL POINTER");
+        }
+        return binTree;
+    }
+}
