@@ -2,11 +2,6 @@ package etu.swing;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 public class ButtonsPanel extends JPanel {
     private final JButton StartSort = createButton("Sort", 40, 10);
@@ -23,22 +18,18 @@ public class ButtonsPanel extends JPanel {
     public ButtonsPanel() {
         super(null);
         add(StartSort);
-        StartSort.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Scanner in = null;
-                try {
-                    in = new Scanner(new File("resource/input.dat"));
-                } catch (FileNotFoundException e1) {
-                    e1.printStackTrace();
-                }
-
-            }
-        });
+//        StartSort.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                Scanner in = null;
+//                try {
+//                    in = new Scanner(new File("resource/input.dat"));
+//                } catch (FileNotFoundException e1) {
+//                    e1.printStackTrace();
+//                }
+//
+//            }
+//        });
     }
 
-
-//    public void addStartSort(AncestorListener listener) {
-//        StartSort.addAncestorListener(listener);
-//    }
 }

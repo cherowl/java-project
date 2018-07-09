@@ -2,7 +2,6 @@ package etu.swing;
 
 import etu.model.BuildGraph;
 import etu.model.FileReadArray;
-import etu.model.heapsort.BinTree.BinTree;
 import etu.model.heapsort.HeapSort;
 import org.graphstream.graph.Graph;
 import org.graphstream.ui.swingViewer.ViewPanel;
@@ -51,22 +50,13 @@ public class UI extends JFrame {
 
         Scanner in = new Scanner(new File("resource/input.dat"));
         FileReadArray fileArr = FileReadArray.init(in);
-
+        
         HeapSort hp = new HeapSort(fileArr.getArray());
         System.out.print("Sorted array: ");
         hp.printArray();
-
         System.out.print("Print KLP of binArr[0] tree: ");
         hp.getBinArr()[0].printTree(hp.getBinArr()[0].getRoot());
         System.out.println();
-//      hp.getBinArr()[0].displayTree(hp.getBinArr()[0].getRoot(), 1);
-
-
-        BinTree binaryTree = new BinTree(fileArr.getArray());
-        binaryTree.createBinTree();
-//        binaryTree.printTree(binaryTree.getRoot());
-        System.out.println();
-
 
         BuildGraph graphB = new BuildGraph(hp.getBinArr()[0].getRoot());
         Graph graph = graphB.build();
