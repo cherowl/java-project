@@ -25,4 +25,14 @@ public class FileReadArray {
         return arr;
     }
 
+    public void printArray(){
+        for (Integer i : arr){
+            System.out.print(" "+i.intValue());
+        }
+        System.out.println();
+    }
+
+    public static FileReadArray restore(ArrayList<Integer> buffer){
+        return FileReadArray.restore(buffer); //new FileReadArray(/*Tree.restore(buffer)*//*тут передается инфа на рисовку дерева, я так понимаю*/);
+    }
 }

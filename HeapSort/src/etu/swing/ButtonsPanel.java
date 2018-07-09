@@ -1,13 +1,16 @@
 package etu.swing;
 
+import etu.controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ButtonsPanel extends JPanel {
-    private final JButton startSort = createButton("Start sort", 40, 40);
+    private final JButton start = createButton("Start sort", 40, 40);
     private final JButton next = createButton("Next step", 40, 40);
-    private final JButton previous = createButton("Previous step", 40, 40);
+    private final JButton prev = createButton("Previous step", 40, 40);
 
     private JButton createButton(String text, int x, int y) {
         return getjButton(text, x, y);
@@ -23,22 +26,34 @@ public class ButtonsPanel extends JPanel {
     }
 
 
-    public ButtonsPanel() {
-        add(previous);
-        add(startSort);
+    public ButtonsPanel(Controller controller) {
+        add(prev);
+        add(start);
         add(next);
-    }
 
-    void addStartSortButtonListener(ActionListener listener){
-        startSort.addActionListener(listener);
-    }
+        start.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.startSort();
+            }
+        });
 
-    void addNextStepButtonListener(ActionListener listener){
-        next.addActionListener(listener);
-    }
+        prev.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.prevStep();
+            }
+        });
 
-    void addPreviousStepButtonListener(ActionListener listener) {
-        previous.addActionListener(listener);
+        next.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.nextStep();
+            }
+        });
+
+
+
     }
 
 }
