@@ -50,8 +50,6 @@ public class UI extends JFrame {
         rightPanel.add(buttons);
         rightPanel.add(Box.createRigidArea(new Dimension(110, 20)));
 
-
-
         Scanner in = new Scanner(new File("resource/input.dat"));
         FileReadArray fileArr = FileReadArray.init(in);
         Controller controller = new Controller(fileArr);
@@ -95,6 +93,8 @@ public class UI extends JFrame {
         rootPanel.setVisible(true);
 
     }
+
+
 
 
 }
