@@ -20,7 +20,6 @@ public class BinTree {
             // value already exists
             return current;
         }
-
         return current;
     }
 

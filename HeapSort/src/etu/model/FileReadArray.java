@@ -1,5 +1,6 @@
 package etu.model;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileReadArray {
@@ -22,5 +23,23 @@ public class FileReadArray {
 
     public int[] getArray(){
         return arr;
+    }
+
+    public static FileReadArray restore(ArrayList<Integer> buffer){
+        return FileReadArray.restore(buffer); //new FileReadArray(/*Tree.restore(buffer)*//*тут передается инфа на рисовку дерева, я так понимаю*/);
+    }
+
+    public FileReadArray reedFromTextField(String text){
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (String i : text.split(" ")){
+            list.add(Integer.parseInt(i));
+        }
+        return restore(list);
+    }
+
+    public void startSort(){
+        //наша функция сортировки
+//        heapSort = new HeapSortMin(new Tree(tree));
+//        heapSort.run();
     }
 }
