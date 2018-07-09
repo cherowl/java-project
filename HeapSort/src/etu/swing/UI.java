@@ -54,17 +54,10 @@ public class UI extends JFrame {
 
         Scanner in = new Scanner(new File("resource/input.dat"));
         FileReadArray fileArr = FileReadArray.init(in);
-        HeapSort hp = new HeapSort(fileArr.getArray());
-        Controller controller = new Controller(fileArr, hp,)
+        Controller controller = new Controller(fileArr);
 
-//            System.out.print("Sorted array: ");
-//            hp.printArray();
-//
-//            hp.getBinArr()[0].printTree(hp.getBinArr()[0].getRoot());
-//    //      hp.getBinArr()[0].displayTree(hp.getBinArr()[0].getRoot(), 1);
+        BuildGraph graphB = new BuildGraph(controller.getBinTree().getRoot());
 
-        BuildGraph graphB = new BuildGraph(hp.getBinArr()[0].getRoot());
-//
         Graph graph = graphB.build();
 
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
