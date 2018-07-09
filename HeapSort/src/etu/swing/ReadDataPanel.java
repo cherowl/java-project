@@ -1,12 +1,15 @@
 package etu.swing;
 
+import etu.model.FileReadArray;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 
 public class ReadDataPanel extends JPanel {
 
-    private final JButton fileOpen = createButton("Open file", 40, 40);
+    private final JButton openFile = createButton("Open file", 40, 40);
     private final JLabel enter = createLabel("Enter array for sort:", 0, 20, 50, 30);
     private final JTextField textField = createTextField("", 0, 40, 50, 30);
 
@@ -31,16 +34,17 @@ public class ReadDataPanel extends JPanel {
     }
 
     public ReadDataPanel() {
-        add(fileOpen);
+        add(openFile);
         add(enter);
         add(textField);
 
-        fileOpen.addActionListener(new ActionListener() {
+        openFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFileChooser fileChooser = new JFileChooser();
                 int returnVal = fileChooser.showDialog(null, "Открыть файл");
-//                Scanner file = new Scanner(fileChooser); //как-нибудь привести
+                FileReadArray file = FileReadArray.init( new Scanner(String.valueOf(fileChooser.getSelectedFile()))); //как-нибудь привести
+
             }
         });
     }
