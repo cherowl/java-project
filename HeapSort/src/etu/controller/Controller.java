@@ -15,7 +15,7 @@ public class Controller {
         this.readFile = readFile;
     }
 
-    public void StartSort(){
+    public void startSort(){
         heapSort = new HeapSort(readFile.getArray());
         System.out.print("Sorted array: ");
         binTree = heapSort.getBinArr()[0];
