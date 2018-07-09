@@ -25,7 +25,6 @@ public class ButtonsPanel extends JPanel {
         return left;
     }
 
-
     public ButtonsPanel(Controller controller) {
         add(prev);
         add(start);

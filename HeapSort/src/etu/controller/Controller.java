@@ -47,8 +47,6 @@ public class Controller {
         graphPanel.updateUI();
     }
 
-
-
     public void startSort(){
         System.out.println("Init mas: ");
         readFile.printArray();
@@ -58,31 +56,38 @@ public class Controller {
         binTree = heapSort.getBinArr()[0];
         System.out.println();
         updateView();
-
     }
 
     public void nextStep(){
         if(heapSort == null)
-            System.out.println("You should press Start Sort");
+            JOptionPane.showMessageDialog(null, "You should press Start Sort", "Attention", JOptionPane.ERROR_MESSAGE);
         else {
-            if (count < heapSort.getBinArr().length)
+            if (count < heapSort.getBinArr().length){
                 count += 1;
-            binTree = heapSort.getBinArr()[count];
-            binTree.printTree(binTree.getRoot());
-            System.out.println();
-            updateView();
+                binTree = heapSort.getBinArr()[count];
+                binTree.printTree(binTree.getRoot());
+                System.out.println();
+                updateView();
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "The algorithm finished", "Attention", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
     public void prevStep(){
         if(heapSort == null)
-            System.out.println("You should press Start Sort");
+            JOptionPane.showMessageDialog(null, "You should press Start Sort", "Attention", JOptionPane.ERROR_MESSAGE);
         else {
-            if (count > 0)
+            if (count > 0) {
                 count -= 1;
-            binTree = heapSort.getBinArr()[count];
-            binTree.printTree(binTree.getRoot());
-            updateView();
+                binTree = heapSort.getBinArr()[count];
+                binTree.printTree(binTree.getRoot());
+                updateView();
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "The previous step doesn't exist yet", "Attention", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
@@ -109,7 +114,6 @@ public class Controller {
 //        return file;
         this.readFile = file;
     }
-
 
 //
 //    public FileReadArray reedFromTextField(String text){
