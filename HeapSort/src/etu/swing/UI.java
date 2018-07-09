@@ -117,7 +117,7 @@ public class UI extends JFrame {
 //        return buttonsPanel;
 //    }
 //
-//    public static UpPanel getUpPanel() {
+//    public static ReadDataPanel getUpPanel() {
 //        return upPanel;
 //    }
 

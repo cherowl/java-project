@@ -19,7 +19,6 @@ public class Controller {
         heapSort = new HeapSort(readFile.getArray());
         System.out.print("Sorted array: ");
         binTree = heapSort.getBinArr()[0];
-        System.out.println("testttttt");
     }
 
 

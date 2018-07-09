@@ -1,11 +1,10 @@
 package etu.swing;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UpPanel extends JPanel {
+public class ReadDataPanel extends JPanel {
 
     private final JButton fileOpen = createButton("Open file", 40, 40);
     private final JLabel enter = createLabel("Enter array for sort:", 0, 20, 50, 30);
@@ -31,7 +30,7 @@ public class UpPanel extends JPanel {
         return textField;
     }
 
-    public UpPanel() {
+    public ReadDataPanel() {
         add(fileOpen);
         add(enter);
         add(textField);
