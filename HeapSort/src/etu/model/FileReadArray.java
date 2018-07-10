@@ -1,6 +1,5 @@
 package etu.model;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileReadArray {
@@ -18,6 +17,7 @@ public class FileReadArray {
                 arr[i] = input.nextInt();
             }
         }
+        input.close();
         return new FileReadArray(arr);
     }
 
@@ -30,9 +30,5 @@ public class FileReadArray {
             System.out.print(" "+i.intValue());
         }
         System.out.println();
-    }
-
-    public static FileReadArray restore(ArrayList<Integer> buffer){
-        return FileReadArray.restore(buffer); //new FileReadArray(/*Tree.restore(buffer)*//*тут передается инфа на рисовку дерева, я так понимаю*/);
     }
 }

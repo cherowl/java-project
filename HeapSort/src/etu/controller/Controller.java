@@ -2,6 +2,7 @@ package etu.controller;
 
 import etu.model.BuildGraph;
 import etu.model.FileReadArray;
+import etu.model.FileWriteArray;
 import etu.model.heapsort.BinTree.BinTree;
 import etu.model.heapsort.HeapSort;
 import org.graphstream.graph.Graph;
@@ -12,13 +13,15 @@ import org.graphstream.ui.view.Viewer;
 import javax.swing.*;
 import java.awt.*;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Controller {
     private FileReadArray readFile;
     private HeapSort heapSort = null;
     private BinTree binTree;
-    private Graph graph = null;
     private int count = 0;
     private JPanel graphPanel = null;
 
@@ -37,17 +40,15 @@ public class Controller {
         viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
         View view = viewer.addDefaultView(false);
         view.getCamera().resetView();
-        view.getCamera().setViewPercent(2.5); //This will zoom of 200% on the view center.
+//        view.getCamera().setViewPercent(2.5); //This will zoom of 200% on the view center.
 
-        ((ViewPanel) view).setPreferredSize(new Dimension(525, 630));
+        ((ViewPanel) view).setPreferredSize(new Dimension(900, 470));
 //        graphPanel = new JPanel();
         graphPanel.add((JPanel) view);
 //        graphPanel.setPreferredSize(new Dimension(300, 180));
 //        graphPanel.setBorder(new TitledBorder("Graph"));
         graphPanel.updateUI();
     }
-
-
 
     public void startSort(){
         System.out.println("Init mas: ");
@@ -58,31 +59,38 @@ public class Controller {
         binTree = heapSort.getBinArr()[0];
         System.out.println();
         updateView();
-
     }
 
     public void nextStep(){
         if(heapSort == null)
-            System.out.println("You should press Start Sort");
+            JOptionPane.showMessageDialog(null, "You should press Start Sort", "Attention", JOptionPane.ERROR_MESSAGE);
         else {
-            if (count < heapSort.getBinArr().length)
+            if (count < heapSort.getBinArr().length){
                 count += 1;
-            binTree = heapSort.getBinArr()[count];
-            binTree.printTree(binTree.getRoot());
-            System.out.println();
-            updateView();
+                binTree = heapSort.getBinArr()[count];
+                binTree.printTree(binTree.getRoot());
+                System.out.println();
+                updateView();
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "The algorithm finished", "Attention", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
     public void prevStep(){
         if(heapSort == null)
-            System.out.println("You should press Start Sort");
+            JOptionPane.showMessageDialog(null, "You should press Start Sort", "Attention", JOptionPane.ERROR_MESSAGE);
         else {
-            if (count > 0)
+            if (count > 0) {
                 count -= 1;
-            binTree = heapSort.getBinArr()[count];
-            binTree.printTree(binTree.getRoot());
-            updateView();
+                binTree = heapSort.getBinArr()[count];
+                binTree.printTree(binTree.getRoot());
+                updateView();
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "The previous step doesn't exist yet", "Attention", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
@@ -97,26 +105,26 @@ public class Controller {
         this.graphPanel = graphPanel;
     }
 
-    public void openFile(){
+    public void openFile() throws FileNotFoundException {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.showDialog(null, "Открыть файл");
         FileReadArray file = null; //как-нибудь привести
-        try {
-            file = FileReadArray.init( new Scanner(fileChooser.getSelectedFile()));
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        }
-//        return file;
+        Scanner in = new Scanner(fileChooser.getSelectedFile());
+        file = FileReadArray.init( in );
+        in.close();
         this.readFile = file;
     }
 
+    public void reedFromTextField(String text) throws IOException {
+        int count = 0;
+        String new_str = new String();
+        Pattern p = Pattern.compile("-?\\d+");
+        Matcher m = p.matcher(text);
+        while (m.find()) {
+            new_str += m.group() + " ";
+            count++;
+        }
 
-//
-//    public FileReadArray reedFromTextField(String text){
-//        ArrayList<Integer> list = new ArrayList<Integer>();
-//        for (String i : text.split(" ")){
-//            list.add(Integer.parseInt(i));
-//        }
-//        return restore(list);
-//    }
+        FileWriteArray.init(new_str, count);
+    }
 }
