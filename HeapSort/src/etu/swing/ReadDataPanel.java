@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 
 public class ReadDataPanel extends JPanel {
 
-    private final JButton openFile = createButton("Open file", 40, 40);
-    private final JLabel enter = createLabel("Enter array for sort:", 0, 20, 50, 30);
+    private final JButton openFile = createButton("Open file", 20, 40);
+    private final JLabel enter = createLabel("              Enter array for sort:", 0, 20, 50, 30);
     private final JTextField textField = createTextField("", 0, 40, 50, 30);
 
     private JButton createButton(String text, int x, int y) {
