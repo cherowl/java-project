@@ -47,7 +47,6 @@ public class BuildGraph {
 		}
 	}
 
-
 	public Graph build(){
 
 		createGraph(nodeTree, null, 1);
