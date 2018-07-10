@@ -5,11 +5,13 @@ import etu.controller.Controller;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class ReadDataPanel extends JPanel {
 
-    private final JButton openFile = createButton("Open file", 40, 40);
-    private final JLabel enter = createLabel("Enter array for sort:", 0, 20, 50, 30);
+    private final JButton openFile = createButton("Open file", 20, 40);
+    private final JLabel enter = createLabel("              Enter array for sort:", 0, 20, 50, 30);
     private final JTextField textField = createTextField("", 0, 40, 50, 30);
 
     private JButton createButton(String text, int x, int y) {
@@ -40,7 +42,22 @@ public class ReadDataPanel extends JPanel {
         openFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.openFile();
+                try {
+                    controller.openFile();
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+
+        textField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    controller.reedFromTextField(textField.getText());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
     }

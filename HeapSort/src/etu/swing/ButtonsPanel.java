@@ -18,13 +18,12 @@ public class ButtonsPanel extends JPanel {
 
     static JButton getjButton(String text, int x, int y) {
         JButton left = new JButton(text);
-        left.setBounds(x, y, 100, 40); //size of buttons
+        left.setBounds(x, y, 100, 50); //size of buttons
         left.setFocusPainted(false);
         left.setBorderPainted(true);
         left.setBackground(Color.LIGHT_GRAY);
         return left;
     }
-
 
     public ButtonsPanel(Controller controller) {
         add(prev);

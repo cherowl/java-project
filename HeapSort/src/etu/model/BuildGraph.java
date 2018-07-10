@@ -57,15 +57,15 @@ public class BuildGraph {
 		}
 
 		graph.addAttribute("ui.stylesheet",
-				"graph{fill-color: gray;} " +
+				"graph{fill-color: #BFD3F2;} " +
 						"node{ " +
 						"shape: circle;  " +
-						"size: 30px, 30px; " +
-						"fill-color: white;" +
+						"size: 20px, 20px; " +
+						"fill-color: #5F6E86;" +
 						"stroke-mode: plain;" +
 						"text-mode: normal;" +
 						"text-style: bold; " +
-						"text-size: 20; " +
+						"text-size: 15; " +
 						"text-alignment: center;" +
 						"size-mode: dyn-size;}");
 
