@@ -6,11 +6,7 @@ import etu.model.FileReadArray;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class UI extends JFrame {
@@ -39,7 +35,9 @@ public class UI extends JFrame {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
         FileReadArray fileArr = FileReadArray.init(in);
+        in.close();
         Controller controller = new Controller(fileArr);
 
         ButtonsPanel buttonPanel = new ButtonsPanel(controller);

@@ -57,16 +57,4 @@ public class BinTree {
         return Math.max(maxDepth(root.left), maxDepth(root.right))+1;
     }
 
-//    public void displayTree(NodeTree root, int n)
-//    {
-//        if(root != null){
-//            if(root.left != null) displayTree(root.right, n + 1);//Прохождение по правым
-//            for (int i = 0; i < n; i++) {
-//                System.out.print("  ");
-//            }
-//            root.print();
-//            if(root.right != null) displayTree(root.left, n + 1);//Прохождение по левым
-//        }
-//
-//    }
 }

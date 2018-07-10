@@ -1,0 +1,411 @@
+[33mcommit b83edbbd5bb3e20b9266c7bffff4ff32c4177b0b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 52953ee 75d63a5
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 21:51:14 2018 +0300
+
+    Merge remote-tracking branch 'shared/betta'
+
+[33mcommit 75d63a599b51328c900192249b434b137865d881[m[33m ([m[1;31mshared/betta[m[33m)[m
+Merge: 45da613 0e56542
+Author: vika210899 <32056767+vika210899@users.noreply.github.com>
+Date:   Tue Jul 10 02:50:54 2018 +0300
+
+    Merge pull request #25 from vika210899/master
+    
+    dialog msgs
+
+[33mcommit 0e56542f5e14a75c7b3048ff432affde270fc7f8[m
+Merge: 121680d 47bda40
+Author: vika210899 <vika210899@mail.ru>
+Date:   Tue Jul 10 02:28:25 2018 +0300
+
+    dialog msgs
+
+[33mcommit 47bda40ebc3fbececeeb2d3b1f5f1eb3373624c6[m[33m ([m[1;31mshared/master[m[33m)[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 23:16:50 2018 +0300
+
+    version-1
+
+[33mcommit 956c50d5b237ed186325b9959bd701c89d6e73d3[m
+Merge: 6a228f3 4d0efb5
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 23:16:19 2018 +0300
+
+    Merge branch 'master' of github.com:cherowl/java-project
+
+[33mcommit 6a228f39995fb978c8eb4ae9d74347f49d301fd7[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 23:00:30 2018 +0300
+
+    version 1
+
+[33mcommit 121680db8f0bd65bb9a71a625a91ac17cd4d0776[m
+Merge: 6c54c30 9584dcd
+Author: vika210899 <vika210899@mail.ru>
+Date:   Mon Jul 9 23:12:21 2018 +0300
+
+    Merge remote-tracking branch 'main/master'
+
+[33mcommit 4d0efb56b5c9feb4cbb2c3de8291c21c40d38a7f[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 23:00:30 2018 +0300
+
+    version 1
+
+[33mcommit 52953ee4c322205479ca007ea8c80d849b9a8e11[m[33m ([m[1;32msave[m[33m)[m
+Merge: fb30fcb 47bda40
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 21:48:54 2018 +0300
+
+    save
+
+[33mcommit fb30fcb0850385803f64643c6a746bf4efeeda57[m
+Merge: 73b38bd eb879ca
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 21:24:52 2018 +0300
+
+    add chngs
+
+[33mcommit 45da613bf2c2d05a6f4662dcdc8f52f879f2e78b[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 20:00:41 2018 +0300
+
+    need fix controller
+
+[33mcommit 6c54c3017feee42ef87cc2fb63a4cbe8a1582113[m
+Author: vika210899 <vika210899@mail.ru>
+Date:   Mon Jul 9 16:30:31 2018 +0300
+
+    before merge
+
+[33mcommit eb879cafebd6983b4a833c507d29a69ca76cc393[m[33m ([m[1;31mshared/version-2[m[33m)[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 16:29:40 2018 +0300
+
+    UI not ready
+
+[33mcommit ef2743c99dab2b588a216792ca6a190a202f7a5c[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 16:24:28 2018 +0300
+
+    chg
+
+[33mcommit f59e361223a52871e143bb30602a9dd90841a43c[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 15:36:50 2018 +0300
+
+    continue rebase
+
+[33mcommit 9584dcd26719741092634dd9f13a2bdf9f887ba7[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 12:19:57 2018 +0300
+
+    version-0.1 + remove not needed
+
+[33mcommit e915e5aa2ede5e019f63ae93cd4e0faddf97e593[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 12:18:26 2018 +0300
+
+    vesion-0.1
+
+[33mcommit e65affcff5f89355f66c2a50d80d740608b8f6e5[m
+Merge: ad9cd7a 0c1190a
+Author: vika210899 <vika210899@mail.ru>
+Date:   Mon Jul 9 11:26:11 2018 +0300
+
+    start interface after fix conflicts
+
+[33mcommit 73b38bd533c6bb7dde57a29d4e8bde22d1885796[m
+Merge: f253e3b f59e361
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 11:22:41 2018 +0300
+
+    mmmm
+
+[33mcommit ad9cd7aa4c0225e22d5d94637aaf0d6965c22e2b[m
+Author: vika210899 <vika210899@mail.ru>
+Date:   Mon Jul 9 11:21:31 2018 +0300
+
+    start interface
+
+[33mcommit 0c1190ab4997212d355133df2fcdce0804b62440[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 11:02:12 2018 +0300
+
+    version-0
+
+[33mcommit eed1eb90ba9a9b948ccd74563687a549c83ebdf2[m
+Merge: f73ef8a 49c82c2
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 10:56:35 2018 +0300
+
+    Merge branch 'master' of github.com:cherowl/java-project into latest
+
+[33mcommit 49c82c261f1a1042ed64fcdb554fe7cb649f6a9d[m
+Merge: 287a384 4ef3ad4
+Author: cherowl <cherowl@yandex.ru>
+Date:   Mon Jul 9 10:51:51 2018 +0300
+
+    Merge pull request #23 from serg-k-v/master
+    
+    fix readme file and work drow, workr HeapSort
+
+[33mcommit f253e3b6308a015549810b0444754b02b65d2b95[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 10:29:33 2018 +0300
+
+    chngs
+
+[33mcommit b0d0206efed9133eae6b460d1a6d7e9b8aa47537[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 10:18:08 2018 +0300
+
+    controller done
+
+[33mcommit 1bb23d466218b3b7873cbc885276475d6b62642c[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 09:29:04 2018 +0300
+
+    for lena
+
+[33mcommit 4ef3ad4f07ba5b21a51342cdf7b5b755a7476589[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 02:59:20 2018 +0300
+
+    add info to readme
+
+[33mcommit 024dccbe0d00849f72ded212adeeeccd851e80e6[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 02:40:00 2018 +0300
+
+    add info to readme
+
+[33mcommit f73ef8af5fd2a835f6808454e219d66c994852b7[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 02:38:05 2018 +0300
+
+    the latest version
+
+[33mcommit bac342a2d8c0a263ed89a2616c51f02d8f885257[m
+Merge: b2adf8d 3329e86
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 02:33:41 2018 +0300
+
+    work draw tree and HeapSort, need Create Buttons
+
+[33mcommit b2adf8d5e736dadc84c9dce2d0a978820e945374[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 02:25:41 2018 +0300
+
+    some chgs
+
+[33mcommit acb004e5a9b43a30fb4b4a54ffc39e3a6406241e[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 02:04:05 2018 +0300
+
+    working create Graph
+
+[33mcommit 3329e861d209695df1aff80e8faab924066568c3[m[33m ([m[1;31mshared/serg[m[33m)[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 01:28:58 2018 +0300
+
+    working
+
+[33mcommit 8a70d9a84d9ba45598d394fcfa1ef15b709459b8[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 01:23:17 2018 +0300
+
+    accept from serg: edges
+
+[33mcommit cd79e97a6e228d9f873224529a41030b7798689f[m
+Merge: 287a384 50c27ac
+Author: cherowl <cherowl@yandex.ru>
+Date:   Mon Jul 9 00:40:40 2018 +0300
+
+    Merge pull request #22 from serg-k-v/master
+    
+    add new algorithm draw
+
+[33mcommit 50c27ac9c1d9e8028e5358274dfa7aa976ad8948[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Mon Jul 9 00:37:48 2018 +0300
+
+    work alg
+
+[33mcommit dbfe283ee376a69949d247b5792aae1c717592bf[m
+Author: vika210899 <vika210899@mail.ru>
+Date:   Mon Jul 9 00:33:47 2018 +0300
+
+    Vtest
+
+[33mcommit b76d58693d41413601aa40c5550287423784f1aa[m
+Merge: bcc7c30 287a384
+Author: vika210899 <vika210899@mail.ru>
+Date:   Mon Jul 9 00:31:04 2018 +0300
+
+    Merge remote-tracking branch 'main/master'
+
+[33mcommit 287a384034aa444f30ae1f6a7673055b7369922f[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Mon Jul 9 00:19:37 2018 +0300
+
+    add test
+
+[33mcommit bcc7c30092b8740ec4c49465aaddbaede62ebb9a[m
+Merge: 51a3558 80ec7ff
+Author: vika210899 <vika210899@mail.ru>
+Date:   Mon Jul 9 00:03:18 2018 +0300
+
+    add test
+
+[33mcommit 80ec7fff4197dfa4bbbd417d1184d5b9cfa2b40c[m
+Author: vika210899 <vika210899@mail.ru>
+Date:   Sun Jul 8 23:36:44 2018 +0300
+
+    ненужное
+
+[33mcommit d05f90476ff11a3ed744caee289219737bc3906d[m
+Merge: d39241e 51a3558
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Sun Jul 8 22:21:59 2018 +0300
+
+    Merge remote-tracking branch 'shared/master'
+
+[33mcommit d39241ed6b9d18d2b9423f71f73a7e549e570391[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Sun Jul 8 22:19:51 2018 +0300
+
+    aasda
+
+[33mcommit 51a3558098ab297ac21e82b35f729a98802dd10a[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 22:14:00 2018 +0300
+
+    need to fix report
+
+[33mcommit 3ea3debf6093e6e97a00add57b8160e297f1b384[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 22:08:40 2018 +0300
+
+    psevdo dispaly bintree on java works not as on c++, return it late, not added
+
+[33mcommit 00f283694a7bf0a59626367acc971180e0ccaa15[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Sun Jul 8 21:48:36 2018 +0300
+
+    fsfdsfd
+
+[33mcommit 7e7b6e33a0c4d436a1879127aac71b77a6a815fd[m
+Merge: 61e3ed6 d1e4dcb
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Sun Jul 8 21:44:55 2018 +0300
+
+    fffd
+
+[33mcommit d1e4dcb509ec17d6529dbbeeeb22f936cc1b6429[m
+Merge: 299b7fa 5008525
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 21:38:17 2018 +0300
+
+    Merge branch 'master' of github.com:cherowl/java-project
+
+[33mcommit 61e3ed6467b898c6987bbe0e4a43b01cce5d8e52[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Sun Jul 8 21:38:15 2018 +0300
+
+    dld
+
+[33mcommit 299b7fa9d9dd60c0e8bf8ab84a1d8cf03d78777a[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 21:38:01 2018 +0300
+
+    HeapSort(all working) + BinTree(all) + report + BuildGraph(alg broken)
+
+[33mcommit 6996bf991b0874a2f86cd049135ffb1925168ab1[m
+Merge: 7a9a464 a4e93a3
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 20:58:49 2018 +0300
+
+    Merge GB trying
+
+[33mcommit 5008525b74965f979cb42c4339c9d86e3419df33[m
+Merge: 7a9a464 a4e93a3
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 20:58:49 2018 +0300
+
+    Merge GB trying
+
+[33mcommit a4e93a3707e5a996c32dee825c1629a4e058b96c[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 20:58:34 2018 +0300
+
+    GB changes, but no succseeful
+
+[33mcommit 8a09e39955d5455a7818ff3c1158659d8d9de0b3[m
+Merge: 7f8ae5b 8b5d6fb
+Author: vika210899 <vika210899@mail.ru>
+Date:   Sun Jul 8 19:14:23 2018 +0300
+
+    report + test
+
+[33mcommit 7f8ae5be77203d47f6856d1bac86c9fd0c31cda2[m
+Author: vika210899 <vika210899@mail.ru>
+Date:   Sun Jul 8 19:09:40 2018 +0300
+
+    test + report
+
+[33mcommit 318cceece13590d6fc07b94dc7ba47ebf4966050[m
+Merge: 9a426d2 0e06419
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Sun Jul 8 18:57:50 2018 +0300
+
+    add edges
+
+[33mcommit 7a9a46493f7f8273bd5b3da8575040799b192949[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 18:56:07 2018 +0300
+
+    to swith for resolve graphbuild problem
+
+[33mcommit 0dfaa156c186c44931c8b3cb8484c86e77f02338[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 18:42:03 2018 +0300
+
+    start to alive HP
+
+[33mcommit 8b5d6fb1b2905bb6a181b8c819d64e70552d36f8[m
+Author: cherowl <cherowl@yandex.ru>
+Date:   Sun Jul 8 18:40:08 2018 +0300
+
+    del random file
+
+[33mcommit 9a426d21829b9bf2d4cfdb55eab6c086fbd34447[m
+Author: Segey <sergeyvladimirovish@gmail.com>
+Date:   Sun Jul 8 18:10:49 2018 +0300
+
+    add level
+
+[33mcommit 0e064192a468dbc285858c8fcc5d29053899efb3[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 18:09:15 2018 +0300
+
+    levels + rebase BT,NT
+
+[33mcommit 26163f94cd5977f88cdd708d6793705fe735b93f[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 18:03:37 2018 +0300
+
+    levels working! (start to delete serg levels)
+
+[33mcommit 9c5a7c73e584cf7fe021ae8aad42ebee8a021eb3[m
+Author: vika210899 <vika210899@mail.ru>
+Date:   Sun Jul 8 17:49:12 2018 +0300
+
+    здесь тест
+
+[33mcommit efe73656b1b049f38bf8e8088ccfcc5a43ed3750[m
+Author: Elena Cherkasova <cherowl@yandex.ru>
+Date:   Sun Jul 8 17:26:08 2018 +0300
+
+    not happy trying with setLevel

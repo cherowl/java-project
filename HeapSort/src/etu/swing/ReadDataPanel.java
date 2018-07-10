@@ -5,6 +5,8 @@ import etu.controller.Controller;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class ReadDataPanel extends JPanel {
 
@@ -40,7 +42,22 @@ public class ReadDataPanel extends JPanel {
         openFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.openFile();
+                try {
+                    controller.openFile();
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        });
+
+        textField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    controller.reedFromTextField(textField.getText());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
         });
     }

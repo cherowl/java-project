@@ -2,6 +2,7 @@ package etu.controller;
 
 import etu.model.BuildGraph;
 import etu.model.FileReadArray;
+import etu.model.FileWriteArray;
 import etu.model.heapsort.BinTree.BinTree;
 import etu.model.heapsort.HeapSort;
 import org.graphstream.graph.Graph;
@@ -12,13 +13,15 @@ import org.graphstream.ui.view.Viewer;
 import javax.swing.*;
 import java.awt.*;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Controller {
     private FileReadArray readFile;
     private HeapSort heapSort = null;
     private BinTree binTree;
-    private Graph graph = null;
     private int count = 0;
     private JPanel graphPanel = null;
 
@@ -102,25 +105,26 @@ public class Controller {
         this.graphPanel = graphPanel;
     }
 
-    public void openFile(){
+    public void openFile() throws FileNotFoundException {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.showDialog(null, "Открыть файл");
         FileReadArray file = null; //как-нибудь привести
-        try {
-            file = FileReadArray.init( new Scanner(fileChooser.getSelectedFile()));
-        } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
-        }
-//        return file;
+        Scanner in = new Scanner(fileChooser.getSelectedFile());
+        file = FileReadArray.init( in );
+        in.close();
         this.readFile = file;
     }
 
-//
-//    public FileReadArray reedFromTextField(String text){
-//        ArrayList<Integer> list = new ArrayList<Integer>();
-//        for (String i : text.split(" ")){
-//            list.add(Integer.parseInt(i));
-//        }
-//        return restore(list);
-//    }
+    public void reedFromTextField(String text) throws IOException {
+        int count = 0;
+        String new_str = new String();
+        Pattern p = Pattern.compile("-?\\d+");
+        Matcher m = p.matcher(text);
+        while (m.find()) {
+            new_str += m.group() + " ";
+            count++;
+        }
+
+        FileWriteArray.init(new_str, count);
+    }
 }
