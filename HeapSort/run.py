@@ -4,7 +4,11 @@ import os
 
 class A:
     def __call__(self, count=10, sleep_time=0.0):
+<<<<<<< HEAD
         os.system("python3.5 speech.py")
+=======
+        os.system("python3.5 tts_Engin.py")
+>>>>>>> a088c8de0b752de90b2bfa7875db1afdbfee58de
         sleep(sleep_time)
         
 
