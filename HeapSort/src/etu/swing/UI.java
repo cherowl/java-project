@@ -10,10 +10,11 @@ import java.io.*;
 import java.util.Scanner;
 
 public class UI extends JFrame {
-    private final JPanel rightPanel;
+    private final JPanel readPanel;
+    private final JPanel controlPanel;
     private final JPanel graphPanel;
-    private static final ButtonsPanel buttonPanel = null;
-    private static final ReadDataPanel dataPanel = null;
+//    private static final ButtonsPanel buttonPanel = null;
+//    private static final ReadDataPanel dataPanel = null;
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
@@ -42,27 +43,38 @@ public class UI extends JFrame {
 
         ButtonsPanel buttonPanel = new ButtonsPanel(controller);
         ReadDataPanel dataPanel = new ReadDataPanel(controller);
-        rightPanel = new JPanel();
-        rightPanel.setPreferredSize(new Dimension(150, 400));
-        rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
 
+        readPanel = new JPanel();
+        readPanel.setPreferredSize(new Dimension(300, 20));
+        readPanel.setLayout(new BoxLayout(readPanel, BoxLayout.X_AXIS));
+
+        controlPanel = new JPanel();
+        controlPanel.setPreferredSize(new Dimension(20, 100));
+        controlPanel.setLayout(new BoxLayout(controlPanel, BoxLayout.PAGE_AXIS));
+
+        dataPanel.setBounds(350, 20, 150, 120);
+        dataPanel.setPreferredSize(new Dimension(300, 200));
         buttonPanel.setPreferredSize(new Dimension(190, 100));
-        buttonPanel.setBounds(300, 0, 150, 120);
-        rightPanel.add(dataPanel);
-        rightPanel.add(buttonPanel);
-        rightPanel.add(Box.createRigidArea(new Dimension(110, 20)));
+        buttonPanel.setBounds(350, 10, 150, 120);
+
+        readPanel.add(dataPanel);
+        readPanel.add(Box.createRigidArea(new Dimension(110, 20)));
+
+        controlPanel.add(buttonPanel);
+        controlPanel.add(Box.createRigidArea(new Dimension(110, 20)));
 
         graphPanel = new JPanel();
-        graphPanel.setPreferredSize(new Dimension(400, 180));
+        graphPanel.setPreferredSize(new Dimension(400, 500));
         graphPanel.setBorder(new TitledBorder("Graph"));
         controller.setGraphPanel(graphPanel);
 
         JPanel rootPanel = new JPanel();
         rootPanel.setPreferredSize(new Dimension(10, 200)); // size of MainWindow
-        rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.X_AXIS));
+        rootPanel.setLayout(new BoxLayout(rootPanel, BoxLayout.Y_AXIS));
 
+        rootPanel.add(readPanel);
         rootPanel.add(graphPanel);
-        rootPanel.add(rightPanel);
+        rootPanel.add(controlPanel);
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //close app when close main window
         setContentPane(rootPanel);

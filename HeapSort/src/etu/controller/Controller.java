@@ -42,7 +42,7 @@ public class Controller {
         view.getCamera().resetView();
 //        view.getCamera().setViewPercent(2.5); //This will zoom of 200% on the view center.
 
-        ((ViewPanel) view).setPreferredSize(new Dimension(525, 630));
+        ((ViewPanel) view).setPreferredSize(new Dimension(900, 470));
 //        graphPanel = new JPanel();
         graphPanel.add((JPanel) view);
 //        graphPanel.setPreferredSize(new Dimension(300, 180));
