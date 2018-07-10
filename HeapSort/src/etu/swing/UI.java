@@ -27,6 +27,7 @@ public class UI extends JFrame {
     }
 
     private UI() throws HeadlessException, IOException {
+        super("Heap Sort Visualisation");
         setPreferredSize(new Dimension(1000, 700));
         setResizable(true);
 
