@@ -30,9 +30,7 @@ public class Controller {
     public void updateView(){
         BuildGraph gb = new BuildGraph(binTree.getRoot());
         Graph graph = gb.build();
-
         graphPanel.removeAll();
-
         Viewer viewer = new Viewer(graph, Viewer.ThreadingModel.GRAPH_IN_GUI_THREAD);
         viewer.disableAutoLayout(); //graph will tend to make nodes tied with each other close
         View view = viewer.addDefaultView(false);
